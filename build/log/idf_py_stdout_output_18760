@@ -1,0 +1,218 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D C:\Users\michc\Desktop\SPE-LAN8651\build\bootloader\esp-idf\esptool_py && C:\Users\michc\.espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe C:/Users/michc/esp/v5.3.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Users/michc/Desktop/SPE-LAN8651/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6880 bytes. 0x780 bytes (7%) free.
+[2/8] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj 
+ccache C:\Users\michc\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20240530\xtensa-esp-elf\bin\xtensa-esp32-elf-gcc.exe -DESP_PLATFORM -DIDF_VER=\"v5.3.1\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -IC:/Users/michc/Desktop/SPE-LAN8651/build/config -IC:/Users/michc/Desktop/SPE-LAN8651/main -IC:/Users/michc/esp/v5.3.1/esp-idf/components/newlib/platform_include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/config/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/config/include/freertos -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/config/xtensa/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/esp_additions/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/include/soc -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/include/soc/esp32 -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/dma/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/ldo/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/port/esp32/. -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/port/esp32/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/heap/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/log/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/soc/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/soc/esp32 -IC:/Users/michc/esp/v5.3.1/esp-idf/components/soc/esp32/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/hal/platform_port/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/hal/esp32/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/hal/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_rom/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_rom/include/esp32 -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_rom/esp32 -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_common/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/port/soc -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/port/include/private -IC:/Users/michc/esp/v5.3.1/esp-idf/components/xtensa/esp32/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/xtensa/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/xtensa/deprecated_include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/include/apps -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/include/apps/sntp -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/lwip/src/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/port/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/port/freertos/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/port/esp32xx/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/port/esp32xx/include/arch -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/port/esp32xx/include/sys -IC:/Users/michc/Desktop/SPE-LAN8651/components/libtc6/inc -IC:/Users/michc/esp/v5.3.1/esp-idf/components/driver/deprecated -IC:/Users/michc/esp/v5.3.1/esp-idf/components/driver/i2c/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/driver/touch_sensor/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/driver/twai/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/driver/touch_sensor/esp32/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_pm/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_ringbuf/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_gpio/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_pcnt/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_gptimer/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_spi/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_mcpwm/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_ana_cmpr/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_i2s/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_sdmmc/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/sdmmc/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_sdspi/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_sdio/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_dac/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_rmt/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_tsens/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_sdm/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_i2c/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_uart/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/vfs/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_ledc/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_parlio/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_usb_serial_jtag/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_timer/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_netif/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_event/include -mlongcalls -Wno-frame-address  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fno-shrink-wrap -fmacro-prefix-map=C:/Users/michc/Desktop/SPE-LAN8651=. -fmacro-prefix-map=C:/Users/michc/esp/v5.3.1/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj -MF esp-idf\main\CMakeFiles\__idf_main.dir\main.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj -c C:/Users/michc/Desktop/SPE-LAN8651/main/main.c
+In file included from C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:10:
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:40:8: error: unknown type name 'EthernetFrame_t'
+   40 | static EthernetFrame_t currentFrame;
+      |        ^~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c: In function 'TC6_CB_OnRxEthernetSlice':
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:331:58: error: request for member 'data' in something not a structure or union
+  331 |     if ((currentOffset + sliceLen) <= sizeof(currentFrame.data)) {
+      |                                                          ^
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:332:28: error: request for member 'data' in something not a structure or union
+  332 |         memcpy(currentFrame.data + currentOffset, pBuf, sliceLen);
+      |                            ^
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:341:44: error: request for member 'length' in something not a structure or union
+  341 |     if ((offset + sliceLen) >= currentFrame.length) {
+      |                                            ^
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:342:21: error: request for member 'length' in something not a structure or union
+  342 |         currentFrame.length = currentOffset;
+      |                     ^
+In file included from C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:3:
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:345:73: error: request for member 'length' in something not a structure or union
+  345 |         ESP_LOGI(TAG, "Received complete frame: length=%u", currentFrame.length);
+      |                                                                         ^
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:435:137: note: in definition of macro 'ESP_LOG_LEVEL'
+  435 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:345:9: note: in expansion of macro 'ESP_LOGI'
+  345 |         ESP_LOGI(TAG, "Received complete frame: length=%u", currentFrame.length);
+      |         ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:345:73: error: request for member 'length' in something not a structure or union
+  345 |         ESP_LOGI(TAG, "Received complete frame: length=%u", currentFrame.length);
+      |                                                                         ^
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:436:137: note: in definition of macro 'ESP_LOG_LEVEL'
+  436 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:345:9: note: in expansion of macro 'ESP_LOGI'
+  345 |         ESP_LOGI(TAG, "Received complete frame: length=%u", currentFrame.length);
+      |         ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:345:73: error: request for member 'length' in something not a structure or union
+  345 |         ESP_LOGI(TAG, "Received complete frame: length=%u", currentFrame.length);
+      |                                                                         ^
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:437:137: note: in definition of macro 'ESP_LOG_LEVEL'
+  437 |         else if (level==ESP_LOG_DEBUG )     { esp_log_write(ESP_LOG_DEBUG,      tag, LOG_FORMAT(D, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:345:9: note: in expansion of macro 'ESP_LOGI'
+  345 |         ESP_LOGI(TAG, "Received complete frame: length=%u", currentFrame.length);
+      |         ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:345:73: error: request for member 'length' in something not a structure or union
+  345 |         ESP_LOGI(TAG, "Received complete frame: length=%u", currentFrame.length);
+      |                                                                         ^
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:438:137: note: in definition of macro 'ESP_LOG_LEVEL'
+  438 |         else if (level==ESP_LOG_VERBOSE )   { esp_log_write(ESP_LOG_VERBOSE,    tag, LOG_FORMAT(V, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:345:9: note: in expansion of macro 'ESP_LOGI'
+  345 |         ESP_LOGI(TAG, "Received complete frame: length=%u", currentFrame.length);
+      |         ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:345:73: error: request for member 'length' in something not a structure or union
+  345 |         ESP_LOGI(TAG, "Received complete frame: length=%u", currentFrame.length);
+      |                                                                         ^
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:439:137: note: in definition of macro 'ESP_LOG_LEVEL'
+  439 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:345:9: note: in expansion of macro 'ESP_LOGI'
+  345 |         ESP_LOGI(TAG, "Received complete frame: length=%u", currentFrame.length);
+      |         ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:58: error: request for member 'length' in something not a structure or union
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |                                                          ^
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:435:137: note: in definition of macro 'ESP_LOG_LEVEL'
+  435 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:9: note: in expansion of macro 'ESP_LOGI'
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |         ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:79: error: request for member 'data' in something not a structure or union
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |                                                                               ^
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:435:137: note: in definition of macro 'ESP_LOG_LEVEL'
+  435 |         if (level==ESP_LOG_ERROR )          { esp_log_write(ESP_LOG_ERROR,      tag, LOG_FORMAT(E, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:9: note: in expansion of macro 'ESP_LOGI'
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |         ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:58: error: request for member 'length' in something not a structure or union
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |                                                          ^
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:436:137: note: in definition of macro 'ESP_LOG_LEVEL'
+  436 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:9: note: in expansion of macro 'ESP_LOGI'
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |         ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:79: error: request for member 'data' in something not a structure or union
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |                                                                               ^
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:436:137: note: in definition of macro 'ESP_LOG_LEVEL'
+  436 |         else if (level==ESP_LOG_WARN )      { esp_log_write(ESP_LOG_WARN,       tag, LOG_FORMAT(W, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:9: note: in expansion of macro 'ESP_LOGI'
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |         ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:58: error: request for member 'length' in something not a structure or union
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |                                                          ^
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:437:137: note: in definition of macro 'ESP_LOG_LEVEL'
+  437 |         else if (level==ESP_LOG_DEBUG )     { esp_log_write(ESP_LOG_DEBUG,      tag, LOG_FORMAT(D, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:9: note: in expansion of macro 'ESP_LOGI'
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |         ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:79: error: request for member 'data' in something not a structure or union
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |                                                                               ^
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:437:137: note: in definition of macro 'ESP_LOG_LEVEL'
+  437 |         else if (level==ESP_LOG_DEBUG )     { esp_log_write(ESP_LOG_DEBUG,      tag, LOG_FORMAT(D, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:9: note: in expansion of macro 'ESP_LOGI'
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |         ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:58: error: request for member 'length' in something not a structure or union
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |                                                          ^
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:438:137: note: in definition of macro 'ESP_LOG_LEVEL'
+  438 |         else if (level==ESP_LOG_VERBOSE )   { esp_log_write(ESP_LOG_VERBOSE,    tag, LOG_FORMAT(V, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:9: note: in expansion of macro 'ESP_LOGI'
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |         ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:79: error: request for member 'data' in something not a structure or union
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |                                                                               ^
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:438:137: note: in definition of macro 'ESP_LOG_LEVEL'
+  438 |         else if (level==ESP_LOG_VERBOSE )   { esp_log_write(ESP_LOG_VERBOSE,    tag, LOG_FORMAT(V, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:9: note: in expansion of macro 'ESP_LOGI'
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |         ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:58: error: request for member 'length' in something not a structure or union
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |                                                          ^
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:439:137: note: in definition of macro 'ESP_LOG_LEVEL'
+  439 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:9: note: in expansion of macro 'ESP_LOGI'
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |         ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:79: error: request for member 'data' in something not a structure or union
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |                                                                               ^
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:439:137: note: in definition of macro 'ESP_LOG_LEVEL'
+  439 |         else                                { esp_log_write(ESP_LOG_INFO,       tag, LOG_FORMAT(I, format), esp_log_timestamp(), tag, ##__VA_ARGS__); } \
+      |                                                                                                                                         ^~~~~~~~~~~
+C:/Users/michc/esp/v5.3.1/esp-idf/components/log/include/esp_log.h:367:38: note: in expansion of macro 'ESP_LOG_LEVEL_LOCAL'
+  367 | #define ESP_LOGI( tag, format, ... ) ESP_LOG_LEVEL_LOCAL(ESP_LOG_INFO,    tag, format, ##__VA_ARGS__)
+      |                                      ^~~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:346:9: note: in expansion of macro 'ESP_LOGI'
+  346 |         ESP_LOGI(TAG, "Frame content: %.*s", currentFrame.length, currentFrame.data);
+      |         ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c: At top level:
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:404:6: warning: 'printChipRevision' defined but not used [-Wunused-function]
+  404 | void printChipRevision(TC6_t *pInst){
+      |      ^~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:395:13: warning: 'OnReadId2' defined but not used [-Wunused-function]
+  395 | static void OnReadId2(TC6_t *pInst, bool success, uint32_t addr, uint32_t value, void *pTag, void *pGlobalTag)
+      |             ^~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:390:13: warning: 'OnReadId1' defined but not used [-Wunused-function]
+  390 | static void OnReadId1(TC6_t *pInst, bool success, uint32_t addr, uint32_t value, void *pTag, void *pGlobalTag)
+      |             ^~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:385:13: warning: 'OnSoftResetCB' defined but not used [-Wunused-function]
+  385 | static void OnSoftResetCB(TC6_t *pInst, bool success, uint32_t addr, uint32_t value, void *pTag, void *pGlobalTag)
+      |             ^~~~~~~~~~~~~
+ninja: build stopped: subcommand failed.

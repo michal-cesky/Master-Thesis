@@ -1,0 +1,707 @@
+ts Jun �A%�Speed      : 40MHz[0m
+�ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (30) boot: ESP-IDF v5.3.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time Apr 10 2025 21:02:08[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (35) boot: chip revision: v1.0[0m
+[0;32mI (38) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (43) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (47) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (52) boot: Enabling RNG early entropy source...[0m
+[0;32mI (57) boot: Partition Table:[0m
+[0;32mI (61) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (68) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (83) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (91) boot: End of partition table[0m
+[0;32mI (95) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0bc0ch ( 48140) map[0m
+[0;32mI (120) esp_image: segment 1: paddr=0001bc34 vaddr=3ffb0000 size=02488h (  9352) load[0m
+[0;32mI (124) esp_image: segment 2: paddr=0001e0c4 vaddr=40080000 size=01f54h (  8020) load[0m
+[0;32mI (129) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=196b0h (104112) map[0m
+[0;32mI (170) esp_image: segment 4: paddr=000396d8 vaddr=40081f54 size=0c49ch ( 50332) load[0m
+[0;32mI (197) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (197) boot: Disabling RNG early entropy source...[0m
+[0;32mI (209) cpu_start: Multicore app[0m
+[0;32mI (217) cpu_start: Pro cpu start user code[0m
+[0;32mI (218) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (218) app_init: Application information:[0m
+[0;32mI (220) app_init: Project name:     SPE-LAN8651[0m
+[0;32mI (226) app_init: App version:      fc3f490-dirty[0m
+[0;32mI (231) app_init: Compile time:     Apr 10 2025 21:01:42[0m
+[0;32mI (237) app_init: ELF file SHA256:  31154e9b8...[0m
+[0;32mI (242) app_init: ESP-IDF:          v5.3.1[0m
+[0;32mI (247) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (252) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (257) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (262) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (269) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (275) heap_init: At 3FFB40A8 len 0002BF58 (175 KiB): DRAM[0m
+[0;32mI (281) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (287) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (294) heap_init: At 4008E3F0 len 00011C10 (71 KiB): IRAM[0m
+[0;32mI (302) spi_flash: detected chip: generic[0m
+[0;32mI (305) spi_flash: flash io: dio[0m
+[0;33mW (309) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (322) main_task: Started on CPU0[0m
+[0;32mI (332) main_task: Calling app_main()[0m
+[0;32mI (332) MAIN: Initializing SPI...[0m
+[0;32mI (332) SPI: SPI initialized successfully[0m
+IRQ_PIN level: 0
+[0;32mI (1332) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+IRQ_PIN level: 1
+IRQ_PIN level: 1
+IRQ_PIN level: 0
+Try restart
+IRQ_N asserted, reset completed.
+[0;32mI (1532) MAIN: Initializing TC6...[0m
+[0;32mI (1532) TC6: TC6 initialized successfully![0m
+TC6_WriteRegister: Writing to register: Address=0x00000003, Value=0x00000001, Secure=false
+TC6_WriteRegister: Writing to register: Address=0x00000003, Value=0x00000001, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400D0, Value=0x00003F31, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400D0, Value=0x00003F31, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400E0, Value=0x0000C000, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400E0, Value=0x0000C000, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010024, Value=0x12A30400, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010024, Value=0x12A30400, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010025, Value=0x00005650, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010025, Value=0x00005650, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010022, Value=0x565012A3, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010022, Value=0x565012A3, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010001, Value=0x00000000, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010001, Value=0x00000000, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400D8, Value=0x00000005, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400D8, Value=0x00000005, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400DA, Value=0x00000002, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400DA, Value=0x00000002, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400D8, Value=0x00000004, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400DA, Value=0x00000002, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400D8, Value=0x00000008, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400DA, Value=0x00000002, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00040084, Value=0x000020D3, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x0004008A, Value=0x0000A800, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400AD, Value=0x00000408, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400AE, Value=0x0000080D, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400AF, Value=0x00001015, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400AF, Value=0x00001015, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400AF, Value=0x00001015, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00040087, Value=0x00008083, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00040087, Value=0x00008083, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00000004, Value=0x00009026, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00000004, Value=0x00009026, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010000, Value=0x0000000C, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010000, Value=0x0000000C, Secure=true
+[0;32mI (7672) TC6: TC6 registers initialized successfully![0m
+[0;31mE (7972) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (8072) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (8522) MAIN: LAN8651 Chip ID: 0x00000011[0m
+[0;32mI (8522) MAIN: LAN8651 Chip Revision: 2[0m
+[0;32mI (8522) TX_TASK: Frame sent successfully[0m
+[0;32mI (8522) main_task: Returned from app_main()[0m
+[0;32mI (8572) TC6_MAIN: TC6 register event: 5[0m
+[0;32mI (8572) TC6_MAIN: TC6 register event: 7[0m
+TC6_WriteRegister: Writing to register: Address=0x00000008, Value=0x00000050, Secure=true
+[0;32mI (8772) TC6_MAIN: TC6 register event: 5[0m
+[0;32mI (8772) TC6_MAIN: TC6 register event: 7[0m
+TC6_WriteRegister: Writing to register: Address=0x00000008, Value=0x00000050, Secure=true
+[0;32mI (10072) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (15672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (15772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (18522) TX_TASK: Frame sent successfully[0m
+[0;32mI (20272) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (25672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (25772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (28522) TX_TASK: Frame sent successfully[0m
+[0;32mI (30472) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (35672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (35772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (38522) TX_TASK: Frame sent successfully[0m
+[0;32mI (40672) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (45672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (45772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (48522) TX_TASK: Frame sent successfully[0m
+[0;32mI (50872) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (55672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (55772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (58522) TX_TASK: Frame sent successfully[0m
+[0;32mI (61072) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (65672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (65772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (68522) TX_TASK: Frame sent successfully[0m
+[0;32mI (71272) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (75672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (75772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (78522) TX_TASK: Frame sent successfully[0m
+[0;32mI (81472) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (85672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (85772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (88522) TX_TASK: Frame sent successfully[0m
+[0;32mI (91672) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (95672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (95772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (98522) TX_TASK: Frame sent successfully[0m
+[0;32mI (101872) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (105672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (105772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (108522) TX_TASK: Frame sent successfully[0m
+[0;32mI (112072) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (115672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (115772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (115872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (118622) TX_TASK: Frame sent successfully[0m
+[0;32mI (122172) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (128722) TX_TASK: Frame sent successfully[0m
+[0;32mI (128872) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (128872) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (128972) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (132372) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (135772) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (135872) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (135972) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (138722) TX_TASK: Frame sent successfully[0m
+[0;32mI (142472) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (145672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (145772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (145872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (148822) TX_TASK: Frame sent successfully[0m
+[0;32mI (152572) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (158922) TX_TASK: Frame sent successfully[0m
+[0;32mI (159072) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (159072) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (159172) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (162772) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (165772) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (165872) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (165972) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (168922) TX_TASK: Frame sent successfully[0m
+[0;32mI (172872) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (175672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (175772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (175872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (179022) TX_TASK: Frame sent successfully[0m
+[0;32mI (182972) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (189122) TX_TASK: Frame sent successfully[0m
+[0;32mI (189272) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (189272) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (189372) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (193172) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (195772) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (195872) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (195972) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (199122) TX_TASK: Frame sent successfully[0m
+[0;32mI (203272) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (205672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (205772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (205872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (209222) TX_TASK: Frame sent successfully[0m
+[0;32mI (213372) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (219322) TX_TASK: Frame sent successfully[0m
+[0;32mI (219472) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (219472) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (219572) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (223572) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (225772) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (225872) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (225972) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (229322) TX_TASK: Frame sent successfully[0m
+[0;32mI (233672) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (235672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (235772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (235872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (239422) TX_TASK: Frame sent successfully[0m
+[0;32mI (243772) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (249522) TX_TASK: Frame sent successfully[0m
+[0;32mI (249672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (249672) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (249772) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (253972) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (255772) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (255872) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (255972) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (259522) TX_TASK: Frame sent successfully[0m
+[0;32mI (264072) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (265672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (265772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (265872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (269622) TX_TASK: Frame sent successfully[0m
+[0;32mI (274172) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (279722) TX_TASK: Frame sent successfully[0m
+[0;32mI (279872) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (279872) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (279972) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (284372) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (285772) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (285872) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (285972) RX_TASK: RX queue is full, dropping frame[0m
+[0;31mE (288572) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (288772) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (288972) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (289172) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (289372) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (289572) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (289722) TX_TASK: Frame sent successfully[0m
+[0;31mE (289772) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (289872) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (290072) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (290272) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (290472) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (290672) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (290872) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (291072) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (291272) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (291472) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (291672) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (291872) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (292072) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (292272) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (292472) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (292672) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (292872) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (293072) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (293272) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (293472) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (293672) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (293872) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (294072) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (294272) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (294472) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (294472) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (294672) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (294872) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (295072) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (295272) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (295472) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (295672) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (295872) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (296072) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (296272) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (296472) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (296672) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (296872) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (297072) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (297272) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (297472) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (297672) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (297872) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (298072) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (298272) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (298472) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (298672) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (298872) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (299072) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (299272) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (299472) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (299672) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (299772) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (299822) TX_TASK: Frame sent successfully[0m
+[0;32mI (304572) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (309872) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (309922) TX_TASK: Frame sent successfully[0m
+[0;32mI (314672) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (319972) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (320022) TX_TASK: Frame sent successfully[0m
+[0;32mI (324772) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (330072) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (330122) TX_TASK: Frame sent successfully[0m
+[0;32mI (334872) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (340172) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (340222) TX_TASK: Frame sent successfully[0m
+[0;32mI (344972) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (350272) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (350322) TX_TASK: Frame sent successfully[0m
+[0;32mI (355072) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (360372) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (360422) TX_TASK: Frame sent successfully[0m
+[0;32mI (365172) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (370472) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (370522) TX_TASK: Frame sent successfully[0m
+[0;32mI (375272) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (380572) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (380622) TX_TASK: Frame sent successfully[0m
+[0;32mI (385372) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (390672) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (390722) TX_TASK: Frame sent successfully[0m
+[0;32mI (395472) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (400772) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (400822) TX_TASK: Frame sent successfully[0m
+[0;32mI (405572) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (410872) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (410922) TX_TASK: Frame sent successfully[0m
+[0;32mI (415672) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (420972) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (421022) TX_TASK: Frame sent successfully[0m
+[0;32mI (425772) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (431072) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (431122) TX_TASK: Frame sent successfully[0m
+[0;32mI (435872) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (441172) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (441222) TX_TASK: Frame sent successfully[0m
+[0;32mI (445972) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (451272) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (451322) TX_TASK: Frame sent successfully[0m
+[0;32mI (456072) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (461372) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (461422) TX_TASK: Frame sent successfully[0m
+[0;32mI (466172) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (471472) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (471522) TX_TASK: Frame sent successfully[0m
+[0;32mI (476272) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (481572) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (481622) TX_TASK: Frame sent successfully[0m
+[0;32mI (486372) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (491672) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (491722) TX_TASK: Frame sent successfully[0m
+[0;32mI (496472) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+[0;31mE (501772) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (501822) TX_TASK: Frame sent successfully[0m
+[0;32mI (506572) TC6_TASK: LAN8651 status - Synced: NO, TX Credit: 31, RX Credit: 0[0m
+ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (30) boot: ESP-IDF v5.3.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time Apr 10 2025 21:02:08[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (34) boot: chip revision: v1.0[0m
+[0;32mI (38) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (43) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (47) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (52) boot: Enabling RNG early entropy source...[0m
+[0;32mI (57) boot: Partition Table:[0m
+[0;32mI (61) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (68) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (83) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (91) boot: End of partition table[0m
+[0;32mI (95) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0bc0ch ( 48140) map[0m
+[0;32mI (120) esp_image: segment 1: paddr=0001bc34 vaddr=3ffb0000 size=02488h (  9352) load[0m
+[0;32mI (124) esp_image: segment 2: paddr=0001e0c4 vaddr=40080000 size=01f54h (  8020) load[0m
+[0;32mI (129) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=196b0h (104112) map[0m
+[0;32mI (170) esp_image: segment 4: paddr=000396d8 vaddr=40081f54 size=0c49ch ( 50332) load[0m
+[0;32mI (197) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (197) boot: Disabling RNG early entropy source...[0m
+[0;32mI (209) cpu_start: Multicore app[0m
+[0;32mI (217) cpu_start: Pro cpu start user code[0m
+[0;32mI (217) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (218) app_init: Application information:[0m
+[0;32mI (220) app_init: Project name:     SPE-LAN8651[0m
+[0;32mI (226) app_init: App version:      fc3f490-dirty[0m
+[0;32mI (231) app_init: Compile time:     Apr 10 2025 21:01:42[0m
+[0;32mI (237) app_init: ELF file SHA256:  31154e9b8...[0m
+[0;32mI (242) app_init: ESP-IDF:          v5.3.1[0m
+[0;32mI (247) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (252) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (257) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (262) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (269) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (275) heap_init: At 3FFB40A8 len 0002BF58 (175 KiB): DRAM[0m
+[0;32mI (281) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (287) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (294) heap_init: At 4008E3F0 len 00011C10 (71 KiB): IRAM[0m
+[0;32mI (302) spi_flash: detected chip: generic[0m
+[0;32mI (305) spi_flash: flash io: dio[0m
+[0;33mW (309) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (322) main_task: Started on CPU0[0m
+[0;32mI (332) main_task: Calling app_main()[0m
+[0;32mI (332) MAIN: Initializing SPI...[0m
+[0;32mI (332) SPI: SPI initialized successfully[0m
+IRQ_PIN level: 0
+[0;32mI (1332) gpio: GPIO[4]| InputEn: 0| OutputEn: 1| OpenDrain: 0| Pullup: 0| Pulldown: 0| Intr:0 [0m
+IRQ_PIN level: 1
+IRQ_PIN level: 1
+IRQ_PIN level: 0
+Try restart
+IRQ_N asserted, reset completed.
+[0;32mI (1532) MAIN: Initializing TC6...[0m
+[0;32mI (1532) TC6: TC6 initialized successfully![0m
+TC6_WriteRegister: Writing to register: Address=0x00000003, Value=0x00000001, Secure=false
+TC6_WriteRegister: Writing to register: Address=0x00000003, Value=0x00000001, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400D0, Value=0x00003F31, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400D0, Value=0x00003F31, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400E0, Value=0x0000C000, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400E0, Value=0x0000C000, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010024, Value=0x12A30400, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010024, Value=0x12A30400, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010025, Value=0x00005650, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010025, Value=0x00005650, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010022, Value=0x565012A3, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010022, Value=0x565012A3, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010001, Value=0x00000000, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010001, Value=0x00000000, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400D8, Value=0x00000005, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400D8, Value=0x00000005, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400DA, Value=0x00000002, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400DA, Value=0x00000002, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400D8, Value=0x00000004, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400DA, Value=0x00000002, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400D8, Value=0x00000008, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400DA, Value=0x00000002, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00040084, Value=0x000020D3, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x0004008A, Value=0x0000A800, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400AD, Value=0x00000408, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400AE, Value=0x0000080D, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400AF, Value=0x00001015, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400AF, Value=0x00001015, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x000400AF, Value=0x00001015, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00040087, Value=0x00008083, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00040087, Value=0x00008083, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00000004, Value=0x00009026, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00000004, Value=0x00009026, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010000, Value=0x0000000C, Secure=true
+TC6_WriteRegister: Writing to register: Address=0x00010000, Value=0x0000000C, Secure=true
+[0;32mI (7672) TC6: TC6 registers initialized successfully![0m
+[0;31mE (7972) TC6_MAIN: TC6 error occurred: 7[0m
+[0;31mE (8072) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (8522) MAIN: LAN8651 Chip ID: 0x00000011[0m
+[0;32mI (8522) MAIN: LAN8651 Chip Revision: 2[0m
+[0;32mI (8522) TX_TASK: Frame sent successfully[0m
+[0;32mI (8522) main_task: Returned from app_main()[0m
+[0;32mI (8572) TC6_MAIN: TC6 register event: 5[0m
+[0;32mI (8572) TC6_MAIN: TC6 register event: 7[0m
+TC6_WriteRegister: Writing to register: Address=0x00000008, Value=0x00000050, Secure=true
+[0;32mI (8772) TC6_MAIN: TC6 register event: 5[0m
+[0;32mI (8772) TC6_MAIN: TC6 register event: 7[0m
+TC6_WriteRegister: Writing to register: Address=0x00000008, Value=0x00000050, Secure=true
+[0;32mI (10072) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (16672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (16772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (18522) TX_TASK: Frame sent successfully[0m
+[0;32mI (20172) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (26772) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (26872) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (28522) TX_TASK: Frame sent successfully[0m
+[0;32mI (30272) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (36672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (36772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (38522) TX_TASK: Frame sent successfully[0m
+[0;32mI (40372) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (46772) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (46872) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (48522) TX_TASK: Frame sent successfully[0m
+[0;32mI (50472) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (56672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (56772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (58522) TX_TASK: Frame sent successfully[0m
+[0;32mI (60572) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (66772) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (66872) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (68522) TX_TASK: Frame sent successfully[0m
+[0;32mI (70672) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (76672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (76772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (78522) TX_TASK: Frame sent successfully[0m
+[0;32mI (80772) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (86772) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (86872) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (88522) TX_TASK: Frame sent successfully[0m
+[0;32mI (90872) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (96672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (96772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (98522) TX_TASK: Frame sent successfully[0m
+[0;32mI (100972) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (106772) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (106872) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;32mI (108522) TX_TASK: Frame sent successfully[0m
+[0;32mI (111072) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (116672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (116772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (116872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (118522) TX_TASK: Frame sent successfully[0m
+[0;32mI (121272) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (126672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (126772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (126872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (128522) TX_TASK: Frame sent successfully[0m
+[0;32mI (131472) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (136672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (136772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (136872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (138522) TX_TASK: Frame sent successfully[0m
+[0;32mI (141672) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (146672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (146772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (146872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (148522) TX_TASK: Frame sent successfully[0m
+[0;32mI (151872) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (156672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (156772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (156872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (158522) TX_TASK: Frame sent successfully[0m
+[0;32mI (162072) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (166672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (166772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (166872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (168522) TX_TASK: Frame sent successfully[0m
+[0;32mI (172272) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (176672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (176772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (176872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (178522) TX_TASK: Frame sent successfully[0m
+[0;32mI (182472) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (186672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (186772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (186872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (188522) TX_TASK: Frame sent successfully[0m
+[0;32mI (192672) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (196672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (196772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (196872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (198522) TX_TASK: Frame sent successfully[0m
+[0;32mI (202872) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (206672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (206772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (206872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (208522) TX_TASK: Frame sent successfully[0m
+[0;32mI (213072) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (216672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (216772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (216872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (218522) TX_TASK: Frame sent successfully[0m
+[0;32mI (223272) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (226672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (226772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (226872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (228522) TX_TASK: Frame sent successfully[0m
+[0;32mI (233472) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (236672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (236772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (236872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (238522) TX_TASK: Frame sent successfully[0m
+[0;32mI (243672) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (246672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (246772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (246872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (248522) TX_TASK: Frame sent successfully[0m
+[0;32mI (253872) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (256672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (256772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (256872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (258522) TX_TASK: Frame sent successfully[0m
+[0;32mI (264072) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (266672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (266772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (266872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (268522) TX_TASK: Frame sent successfully[0m
+[0;32mI (274272) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (276672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (276772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (276872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (278522) TX_TASK: Frame sent successfully[0m
+[0;32mI (284472) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (286672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (286772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (286872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (288522) TX_TASK: Frame sent successfully[0m
+[0;32mI (294672) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (296672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (296772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (296872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (298522) TX_TASK: Frame sent successfully[0m
+[0;32mI (304872) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (306672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (306772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (306872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (308522) TX_TASK: Frame sent successfully[0m
+[0;32mI (315072) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (316672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (316772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (316872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (318522) TX_TASK: Frame sent successfully[0m
+[0;32mI (325272) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (326672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (326772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (326872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (328522) TX_TASK: Frame sent successfully[0m
+[0;32mI (335472) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (336672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (336772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (336872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (338522) TX_TASK: Frame sent successfully[0m
+[0;32mI (345672) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (346672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (346772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (346872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (348522) TX_TASK: Frame sent successfully[0m
+[0;32mI (355872) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (356672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (356772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (356872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (358522) TX_TASK: Frame sent successfully[0m
+[0;32mI (366072) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (366672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (366772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (366872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (368522) TX_TASK: Frame sent successfully[0m
+[0;32mI (376272) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (376672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (376772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (376872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (378522) TX_TASK: Frame sent successfully[0m
+[0;32mI (386472) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (386672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (386772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (386872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (388522) TX_TASK: Frame sent successfully[0m
+[0;32mI (396672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (396772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (396872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (398522) TX_TASK: Frame sent successfully[0m
+[0;32mI (398872) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (406672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (406772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (406872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (408522) TX_TASK: Frame sent successfully[0m
+[0;32mI (409072) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (416672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (416772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (416872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (418522) TX_TASK: Frame sent successfully[0m
+[0;32mI (419272) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (426672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (426772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (426872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (428522) TX_TASK: Frame sent successfully[0m
+[0;32mI (429472) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (436672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (436772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (436872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (438522) TX_TASK: Frame sent successfully[0m
+[0;32mI (439672) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (446672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (446772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (446872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (448522) TX_TASK: Frame sent successfully[0m
+[0;32mI (449872) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (456672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (456772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (456872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (458522) TX_TASK: Frame sent successfully[0m
+[0;32mI (460072) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (466672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (466772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (466872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (468522) TX_TASK: Frame sent successfully[0m
+[0;32mI (470272) TC6_TASK: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (476672) TC6_MAIN: Ethernet slice received: offset=0, length=64[0m
+[0;32mI (476772) TC6_MAIN: Ethernet slice received: offset=64, length=4[0m
+[0;33mW (476872) RX_TASK: RX queue is full, dropping frame[0m
+[0;32mI (478522) TX_TASK: Frame sent successfully[0m
+[0;32mI (480472) TC6_TASK: LAN8

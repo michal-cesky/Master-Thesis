@@ -1,0 +1,17 @@
+[1/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+In file included from C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:10:
+C:/Users/michc/Desktop/SPE-LAN8651/main/lan8651.h:16:13: warning: 'printChipRevision' declared 'static' but never defined [-Wunused-function]
+   16 | static void printChipRevision(TC6_t *pInst);
+      |             ^~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/lan8651.h:17:13: warning: 'onReadChipId' declared 'static' but never defined [-Wunused-function]
+   17 | static void onReadChipId(TC6_t *pInst, bool success, uint32_t addr, uint32_t regValue, void *pTag, void *pGlobalTag);
+      |             ^~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/lan8651.h:18:13: warning: 'handle_tc6_service' declared 'static' but never defined [-Wunused-function]
+   18 | static void handle_tc6_service(void);
+      |             ^~~~~~~~~~~~~~~~~~
+In file included from C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:8:
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:18:20: warning: 'TAG' defined but not used [-Wunused-variable]
+   18 | static const char *TAG = "TC6_MAIN";
+      |                    ^~~
+[2/10] Linking C static library esp-idf\main\libmain.a
+[3/10] Performing build step for 'bootloader'

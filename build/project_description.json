@@ -1,7 +1,7 @@
 {
     "version":            "1.1",
     "project_name":       "SPE-LAN8651",
-    "project_version":    "1",
+    "project_version":    "fc3f490-dirty",
     "project_path":       "C:/Users/michc/Desktop/SPE-LAN8651",
     "idf_path":           "C:/Users/michc/esp/v5.3.1/esp-idf",
     "build_dir":          "C:/Users/michc/Desktop/SPE-LAN8651/build",
@@ -1195,7 +1195,7 @@
             "managed_reqs": [],
             "managed_priv_reqs": [],
             "file": "C:/Users/michc/Desktop/SPE-LAN8651/build/esp-idf/main/libmain.a",
-            "sources": [ "C:/Users/michc/Desktop/SPE-LAN8651/main/main.c", "C:/Users/michc/Desktop/SPE-LAN8651/main/callback.c" ],
+            "sources": [ "C:/Users/michc/Desktop/SPE-LAN8651/main/main.c", "C:/Users/michc/Desktop/SPE-LAN8651/main/callback.c", "C:/Users/michc/Desktop/SPE-LAN8651/main/spi.c", "C:/Users/michc/Desktop/SPE-LAN8651/main/lan8651.c", "C:/Users/michc/Desktop/SPE-LAN8651/main/ethernet.c" ],
             "include_dirs": [ "." ]
         },
         "mbedtls": {

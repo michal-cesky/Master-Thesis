@@ -7,6 +7,11 @@
         "string_view": "c",
         "regex": "c",
         "array": "c",
-        "string": "c"
+        "string": "c",
+        "*.tcc": "c",
+        "string.h": "c",
+        "inttypes.h": "c",
+        "main.h": "c",
+        "spi.h": "c"
     }
 }

@@ -1,0 +1,66 @@
+[1/10] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D C:\Users\michc\Desktop\SPE-LAN8651\build\bootloader\esp-idf\esptool_py && C:\Users\michc\.espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe C:/Users/michc/esp/v5.3.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Users/michc/Desktop/SPE-LAN8651/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6880 bytes. 0x780 bytes (7%) free.
+[2/8] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/spi.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/spi.c.obj 
+ccache C:\Users\michc\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20240530\xtensa-esp-elf\bin\xtensa-esp32-elf-gcc.exe -DESP_PLATFORM -DIDF_VER=\"v5.3.1\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -IC:/Users/michc/Desktop/SPE-LAN8651/build/config -IC:/Users/michc/Desktop/SPE-LAN8651/main -IC:/Users/michc/esp/v5.3.1/esp-idf/components/newlib/platform_include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/config/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/config/include/freertos -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/config/xtensa/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/esp_additions/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/include/soc -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/include/soc/esp32 -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/dma/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/ldo/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/port/esp32/. -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/port/esp32/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/heap/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/log/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/soc/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/soc/esp32 -IC:/Users/michc/esp/v5.3.1/esp-idf/components/soc/esp32/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/hal/platform_port/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/hal/esp32/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/hal/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_rom/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_rom/include/esp32 -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_rom/esp32 -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_common/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/port/soc -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/port/include/private -IC:/Users/michc/esp/v5.3.1/esp-idf/components/xtensa/esp32/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/xtensa/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/xtensa/deprecated_include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/include/apps -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/include/apps/sntp -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/lwip/src/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/port/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/port/freertos/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/port/esp32xx/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/port/esp32xx/include/arch -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/port/esp32xx/include/sys -IC:/Users/michc/Desktop/SPE-LAN8651/components/libtc6/inc -IC:/Users/michc/esp/v5.3.1/esp-idf/components/driver/deprecated -IC:/Users/michc/esp/v5.3.1/esp-idf/components/driver/i2c/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/driver/touch_sensor/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/driver/twai/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/driver/touch_sensor/esp32/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_pm/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_ringbuf/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_gpio/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_pcnt/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_gptimer/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_spi/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_mcpwm/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_ana_cmpr/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_i2s/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_sdmmc/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/sdmmc/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_sdspi/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_sdio/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_dac/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_rmt/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_tsens/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_sdm/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_i2c/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_uart/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/vfs/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_ledc/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_parlio/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_usb_serial_jtag/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_timer/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_netif/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_event/include -mlongcalls -Wno-frame-address  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fno-shrink-wrap -fmacro-prefix-map=C:/Users/michc/Desktop/SPE-LAN8651=. -fmacro-prefix-map=C:/Users/michc/esp/v5.3.1/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/spi.c.obj -MF esp-idf\main\CMakeFiles\__idf_main.dir\spi.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/spi.c.obj -c C:/Users/michc/Desktop/SPE-LAN8651/main/spi.c
+In file included from C:/Users/michc/Desktop/SPE-LAN8651/main/spi.c:5:
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:27:28: error: static declaration of 'spi_handle' follows non-static declaration
+   27 | static spi_device_handle_t spi_handle;
+      |                            ^~~~~~~~~~
+In file included from C:/Users/michc/Desktop/SPE-LAN8651/main/spi.c:1:
+C:/Users/michc/Desktop/SPE-LAN8651/main/spi.h:8:28: note: previous declaration of 'spi_handle' with type 'spi_device_handle_t' {aka 'struct spi_device_t *'}
+    8 | extern spi_device_handle_t spi_handle;
+      |                            ^~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:43:18: error: static declaration of 'init_spi' follows non-static declaration
+   43 | static esp_err_t init_spi(void);
+      |                  ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/spi.h:11:11: note: previous declaration of 'init_spi' with type 'esp_err_t(void)' {aka 'int(void)'}
+   11 | esp_err_t init_spi(void);
+      |           ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/spi.c:7:20: error: redefinition of 'TAG'
+    7 | static const char *TAG = "SPI";
+      |                    ^~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:26:20: note: previous definition of 'TAG' with type 'const char *'
+   26 | static const char *TAG = "TC6_MAIN";
+      |                    ^~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/spi.c:8:21: error: non-static declaration of 'spi_handle' follows static declaration
+    8 | spi_device_handle_t spi_handle;
+      |                     ^~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:27:28: note: previous declaration of 'spi_handle' with type 'spi_device_handle_t' {aka 'struct spi_device_t *'}
+   27 | static spi_device_handle_t spi_handle;
+      |                            ^~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:44:13: warning: 'init_tc6' declared 'static' but never defined [-Wunused-function]
+   44 | static void init_tc6(void); // Přidáno
+      |             ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:45:13: warning: 'handle_tc6_service' declared 'static' but never defined [-Wunused-function]
+   45 | static void handle_tc6_service(void); // Přidáno
+      |             ^~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:46:13: warning: 'onReadChipId' declared 'static' but never defined [-Wunused-function]
+   46 | static void onReadChipId(TC6_t *pInst, bool success, uint32_t addr, uint32_t regValue, void *pTag, void *pGlobalTag);
+      |             ^~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:47:17: warning: 'lan8651ReadChipId' declared 'static' but never defined [-Wunused-function]
+   47 | static uint32_t lan8651ReadChipId(TC6_t *tc6_instance);
+      |                 ^~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:48:13: warning: 'printChipRevision' declared 'static' but never defined [-Wunused-function]
+   48 | static void printChipRevision(TC6_t *pInst);
+      |             ^~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:50:13: warning: 'OnSoftResetCB' declared 'static' but never defined [-Wunused-function]
+   50 | static void OnSoftResetCB(TC6_t *pInst, bool success, uint32_t addr, uint32_t value, void *pTag, void *pGlobalTag);
+      |             ^~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:51:13: warning: 'OnReadId1' declared 'static' but never defined [-Wunused-function]
+   51 | static void OnReadId1(TC6_t *pInst, bool success, uint32_t addr, uint32_t value, void *pTag, void *pGlobalTag);
+      |             ^~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:52:13: warning: 'OnReadId2' declared 'static' but never defined [-Wunused-function]
+   52 | static void OnReadId2(TC6_t *pInst, bool success, uint32_t addr, uint32_t value, void *pTag, void *pGlobalTag);
+      |             ^~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/spi.c:10:11: warning: 'init_spi' defined but not used [-Wunused-function]
+   10 | esp_err_t init_spi(void)
+      |           ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:30:15: warning: 'tc6_instance' defined but not used [-Wunused-variable]
+   30 | static TC6_t *tc6_instance = NULL;
+      |               ^~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:17:22: warning: 'rxQueue' defined but not used [-Wunused-variable]
+   17 | static QueueHandle_t rxQueue;
+      |                      ^~~~~~~
+ninja: build stopped: subcommand failed.

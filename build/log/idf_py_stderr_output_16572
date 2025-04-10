@@ -1,0 +1,42 @@
+[0;33m--- Warning: GDB cannot open serial ports accessed as COMx[0m
+[0;33m--- Using \\.\COM7 instead...[0m
+[0;33m--- esp-idf-monitor 1.5.0 on \\.\COM7 115200[0m
+[0;33m--- Quit: Ctrl+] | Menu: Ctrl+T | Help: Ctrl+T followed by Ctrl+H[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400818e2: panic_abort at C:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/panic.c:463
+0x400864c5: esp_system_abort at C:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x4008ce05: __assert_func at C:/Users/michc/esp/v5.3.1/esp-idf/components/newlib/assert.c:80
+0x40086c2f: xQueueReceive at C:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1531 (discriminator 1)
+0x400d6732: RxTask at C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:126
+0x40086f2d: vPortTaskWrapper at C:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400818e2: panic_abort at C:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/panic.c:463
+0x400864c5: esp_system_abort at C:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x4008ce05: __assert_func at C:/Users/michc/esp/v5.3.1/esp-idf/components/newlib/assert.c:80
+0x40086c2f: xQueueReceive at C:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1531 (discriminator 1)
+0x400d6732: RxTask at C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:126
+0x40086f2d: vPortTaskWrapper at C:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400818e2: panic_abort at C:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/panic.c:463
+0x400864c5: esp_system_abort at C:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x4008ce05: __assert_func at C:/Users/michc/esp/v5.3.1/esp-idf/components/newlib/assert.c:80
+0x40086c2f: xQueueReceive at C:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1531 (discriminator 1)
+0x400d6732: RxTask at C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:126
+0x40086f2d: vPortTaskWrapper at C:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m
+[0;33m--- 0x400818e2: panic_abort at C:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/panic.c:463
+0x400864c5: esp_system_abort at C:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/port/esp_system_chip.c:92
+0x4008ce05: __assert_func at C:/Users/michc/esp/v5.3.1/esp-idf/components/newlib/assert.c:80
+0x40086c2f: xQueueReceive at C:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/queue.c:1531 (discriminator 1)
+0x400d6732: RxTask at C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:126
+0x40086f2d: vPortTaskWrapper at C:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/port.c:134
+[0m
+[0;33m--- 0x40080400: _init at ??:?
+[0m

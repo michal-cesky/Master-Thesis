@@ -1,0 +1,114 @@
+[1/12] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/spi.c.obj
+In file included from C:/Users/michc/Desktop/SPE-LAN8651/main/spi.c:5:
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:42:13: warning: 'handle_tc6_service' declared 'static' but never defined [-Wunused-function]
+   42 | static void handle_tc6_service(void); // Přidáno
+      |             ^~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:43:13: warning: 'onReadChipId' declared 'static' but never defined [-Wunused-function]
+   43 | static void onReadChipId(TC6_t *pInst, bool success, uint32_t addr, uint32_t regValue, void *pTag, void *pGlobalTag);
+      |             ^~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:44:17: warning: 'lan8651ReadChipId' declared 'static' but never defined [-Wunused-function]
+   44 | static uint32_t lan8651ReadChipId(TC6_t *tc6_instance);
+      |                 ^~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:45:13: warning: 'printChipRevision' declared 'static' but never defined [-Wunused-function]
+   45 | static void printChipRevision(TC6_t *pInst);
+      |             ^~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:46:13: warning: 'OnSoftResetCB' declared 'static' but never defined [-Wunused-function]
+   46 | static void OnSoftResetCB(TC6_t *pInst, bool success, uint32_t addr, uint32_t value, void *pTag, void *pGlobalTag);
+      |             ^~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:47:13: warning: 'OnReadId1' declared 'static' but never defined [-Wunused-function]
+   47 | static void OnReadId1(TC6_t *pInst, bool success, uint32_t addr, uint32_t value, void *pTag, void *pGlobalTag);
+      |             ^~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:48:13: warning: 'OnReadId2' declared 'static' but never defined [-Wunused-function]
+   48 | static void OnReadId2(TC6_t *pInst, bool success, uint32_t addr, uint32_t value, void *pTag, void *pGlobalTag);
+      |             ^~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/spi.c:7:20: warning: 'SPI_TAG' defined but not used [-Wunused-variable]
+    7 | static const char *SPI_TAG = "SPI";
+      |                    ^~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:19:22: warning: 'rxQueue' defined but not used [-Wunused-variable]
+   19 | static QueueHandle_t rxQueue;
+      |                      ^~~~~~~
+[2/12] Performing build step for 'bootloader'
+[1/1] cmd.exe /C "cd /D C:\Users\michc\Desktop\SPE-LAN8651\build\bootloader\esp-idf\esptool_py && C:\Users\michc\.espressif\python_env\idf5.3_py3.11_env\Scripts\python.exe C:/Users/michc/esp/v5.3.1/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 C:/Users/michc/Desktop/SPE-LAN8651/build/bootloader/bootloader.bin"
+Bootloader binary size 0x6880 bytes. 0x780 bytes (7%) free.
+[3/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/lan8651.c.obj
+FAILED: esp-idf/main/CMakeFiles/__idf_main.dir/lan8651.c.obj 
+ccache C:\Users\michc\.espressif\tools\xtensa-esp-elf\esp-13.2.0_20240530\xtensa-esp-elf\bin\xtensa-esp32-elf-gcc.exe -DESP_PLATFORM -DIDF_VER=\"v5.3.1\" -DSOC_MMU_PAGE_SIZE=CONFIG_MMU_PAGE_SIZE -DSOC_XTAL_FREQ_MHZ=CONFIG_XTAL_FREQ -D_GLIBCXX_HAVE_POSIX_SEMAPHORE -D_GLIBCXX_USE_POSIX_SEMAPHORE -D_GNU_SOURCE -D_POSIX_READER_WRITER_LOCKS -IC:/Users/michc/Desktop/SPE-LAN8651/build/config -IC:/Users/michc/Desktop/SPE-LAN8651/main -IC:/Users/michc/esp/v5.3.1/esp-idf/components/newlib/platform_include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/config/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/config/include/freertos -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/config/xtensa/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/FreeRTOS-Kernel/portable/xtensa/include/freertos -IC:/Users/michc/esp/v5.3.1/esp-idf/components/freertos/esp_additions/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/include/soc -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/include/soc/esp32 -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/dma/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/ldo/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/port/esp32/. -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_hw_support/port/esp32/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/heap/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/log/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/soc/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/soc/esp32 -IC:/Users/michc/esp/v5.3.1/esp-idf/components/soc/esp32/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/hal/platform_port/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/hal/esp32/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/hal/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_rom/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_rom/include/esp32 -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_rom/esp32 -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_common/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/port/soc -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_system/port/include/private -IC:/Users/michc/esp/v5.3.1/esp-idf/components/xtensa/esp32/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/xtensa/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/xtensa/deprecated_include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/include/apps -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/include/apps/sntp -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/lwip/src/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/port/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/port/freertos/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/port/esp32xx/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/port/esp32xx/include/arch -IC:/Users/michc/esp/v5.3.1/esp-idf/components/lwip/port/esp32xx/include/sys -IC:/Users/michc/Desktop/SPE-LAN8651/components/libtc6/inc -IC:/Users/michc/esp/v5.3.1/esp-idf/components/driver/deprecated -IC:/Users/michc/esp/v5.3.1/esp-idf/components/driver/i2c/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/driver/touch_sensor/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/driver/twai/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/driver/touch_sensor/esp32/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_pm/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_ringbuf/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_gpio/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_pcnt/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_gptimer/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_spi/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_mcpwm/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_ana_cmpr/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_i2s/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_sdmmc/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/sdmmc/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_sdspi/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_sdio/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_dac/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_rmt/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_tsens/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_sdm/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_i2c/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_uart/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/vfs/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_ledc/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_parlio/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_driver_usb_serial_jtag/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_timer/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_netif/include -IC:/Users/michc/esp/v5.3.1/esp-idf/components/esp_event/include -mlongcalls -Wno-frame-address  -fno-builtin-memcpy -fno-builtin-memset -fno-builtin-bzero -fno-builtin-stpcpy -fno-builtin-strncpy -fdiagnostics-color=always -ffunction-sections -fdata-sections -Wall -Werror=all -Wno-error=unused-function -Wno-error=unused-variable -Wno-error=unused-but-set-variable -Wno-error=deprecated-declarations -Wextra -Wno-unused-parameter -Wno-sign-compare -Wno-enum-conversion -gdwarf-4 -ggdb -Og -fno-shrink-wrap -fmacro-prefix-map=C:/Users/michc/Desktop/SPE-LAN8651=. -fmacro-prefix-map=C:/Users/michc/esp/v5.3.1/esp-idf=/IDF -fstrict-volatile-bitfields -fno-jump-tables -fno-tree-switch-conversion -std=gnu17 -Wno-old-style-declaration -MD -MT esp-idf/main/CMakeFiles/__idf_main.dir/lan8651.c.obj -MF esp-idf\main\CMakeFiles\__idf_main.dir\lan8651.c.obj.d -o esp-idf/main/CMakeFiles/__idf_main.dir/lan8651.c.obj -c C:/Users/michc/Desktop/SPE-LAN8651/main/lan8651.c
+In file included from C:/Users/michc/Desktop/SPE-LAN8651/main/lan8651.c:1:
+C:/Users/michc/Desktop/SPE-LAN8651/main/lan8651.h:14:8: error: unknown type name 'TC6_t'
+   14 | static TC6_t *tc6_instance = NULL;
+      |        ^~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/lan8651.c: In function 'init_tc6':
+C:/Users/michc/Desktop/SPE-LAN8651/main/lan8651.c:52:18: warning: assignment to 'int *' from incompatible pointer type 'TC6_t *' [-Wincompatible-pointer-types]
+   52 |     tc6_instance = TC6_Init((void *)spi_handle);
+      |                  ^
+C:/Users/michc/Desktop/SPE-LAN8651/main/lan8651.c:62:38: warning: passing argument 1 of 'TC6Regs_Init' from incompatible pointer type [-Wincompatible-pointer-types]
+   62 |     bool regs_init_ok = TC6Regs_Init(tc6_instance, NULL, macAddress,
+      |                                      ^~~~~~~~~~~~
+      |                                      |
+      |                                      int *
+In file included from C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:5,
+                 from C:/Users/michc/Desktop/SPE-LAN8651/main/lan8651.c:5:
+C:/Users/michc/Desktop/SPE-LAN8651/components/libtc6/inc/tc6-regs.h:96:26: note: expected 'TC6_t *' but argument is of type 'int *'
+   96 | bool TC6Regs_Init(TC6_t *pInst, void *pTag, const uint8_t mac[6], bool enablePlca, uint8_t nodeId, uint8_t nodeCount, uint8_t burstCount, uint8_t burstTimer, bool promiscuous, bool txCutThrough, bool rxCutThrough);
+      |                   ~~~~~~~^~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/lan8651.c:80:20: warning: passing argument 1 of 'TC6_EnableData' from incompatible pointer type [-Wincompatible-pointer-types]
+   80 |     TC6_EnableData(tc6_instance, true);
+      |                    ^~~~~~~~~~~~
+      |                    |
+      |                    int *
+In file included from C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:4:
+C:/Users/michc/Desktop/SPE-LAN8651/components/libtc6/inc/tc6.h:148:28: note: expected 'TC6_t *' but argument is of type 'int *'
+  148 | void TC6_EnableData(TC6_t *pInst, bool enable);
+      |                     ~~~~~~~^~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h: At top level:
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:42:13: warning: 'handle_tc6_service' used but never defined
+   42 | static void handle_tc6_service(void); // Přidáno
+      |             ^~~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:43:13: warning: 'onReadChipId' declared 'static' but never defined [-Wunused-function]
+   43 | static void onReadChipId(TC6_t *pInst, bool success, uint32_t addr, uint32_t regValue, void *pTag, void *pGlobalTag);
+      |             ^~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:44:17: warning: 'lan8651ReadChipId' declared 'static' but never defined [-Wunused-function]
+   44 | static uint32_t lan8651ReadChipId(TC6_t *tc6_instance);
+      |                 ^~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:45:13: warning: 'printChipRevision' declared 'static' but never defined [-Wunused-function]
+   45 | static void printChipRevision(TC6_t *pInst);
+      |             ^~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:46:13: warning: 'OnSoftResetCB' declared 'static' but never defined [-Wunused-function]
+   46 | static void OnSoftResetCB(TC6_t *pInst, bool success, uint32_t addr, uint32_t value, void *pTag, void *pGlobalTag);
+      |             ^~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:47:13: warning: 'OnReadId1' declared 'static' but never defined [-Wunused-function]
+   47 | static void OnReadId1(TC6_t *pInst, bool success, uint32_t addr, uint32_t value, void *pTag, void *pGlobalTag);
+      |             ^~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:48:13: warning: 'OnReadId2' declared 'static' but never defined [-Wunused-function]
+   48 | static void OnReadId2(TC6_t *pInst, bool success, uint32_t addr, uint32_t value, void *pTag, void *pGlobalTag);
+      |             ^~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/lan8651.c:50:6: warning: 'init_tc6' defined but not used [-Wunused-function]
+   50 | void init_tc6(void)
+      |      ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/lan8651.c:9:20: warning: 'PHY_TAG' defined but not used [-Wunused-variable]
+    9 | static const char *PHY_TAG = "LAN8651";
+      |                    ^~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:28:20: warning: 'TAG' defined but not used [-Wunused-variable]
+   28 | static const char *TAG = "TC6_MAIN";
+      |                    ^~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.h:19:22: warning: 'rxQueue' defined but not used [-Wunused-variable]
+   19 | static QueueHandle_t rxQueue;
+      |                      ^~~~~~~
+[4/10] Building C object esp-idf/main/CMakeFiles/__idf_main.dir/main.c.obj
+In file included from C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:12:
+C:/Users/michc/Desktop/SPE-LAN8651/main/lan8651.h:9:13: warning: 'init_tc6' used but never defined
+    9 | static void init_tc6(void);
+      |             ^~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:339:6: warning: 'printChipRevision' defined but not used [-Wunused-function]
+  339 | void printChipRevision(TC6_t *pInst){
+      |      ^~~~~~~~~~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:330:13: warning: 'OnReadId2' defined but not used [-Wunused-function]
+  330 | static void OnReadId2(TC6_t *pInst, bool success, uint32_t addr, uint32_t value, void *pTag, void *pGlobalTag)
+      |             ^~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:325:13: warning: 'OnReadId1' defined but not used [-Wunused-function]
+  325 | static void OnReadId1(TC6_t *pInst, bool success, uint32_t addr, uint32_t value, void *pTag, void *pGlobalTag)
+      |             ^~~~~~~~~
+C:/Users/michc/Desktop/SPE-LAN8651/main/main.c:320:13: warning: 'OnSoftResetCB' defined but not used [-Wunused-function]
+  320 | static void OnSoftResetCB(TC6_t *pInst, bool success, uint32_t addr, uint32_t value, void *pTag, void *pGlobalTag)
+      |             ^~~~~~~~~~~~~
+ninja: build stopped: subcommand failed.
