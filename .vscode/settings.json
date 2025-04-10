@@ -1,0 +1,12 @@
+{
+    "files.associations": {
+        "tc6.h": "c",
+        "cstdint": "c",
+        "tc6-regs.h": "c",
+        "bitset": "c",
+        "string_view": "c",
+        "regex": "c",
+        "array": "c",
+        "string": "c"
+    }
+}

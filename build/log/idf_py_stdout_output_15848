@@ -1,0 +1,2814 @@
+ts J���A%�Speed      : 40MHz�ets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (30) boot: ESP-IDF v5.3.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time Apr 10 2025 12:42:35[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (34) boot: chip revision: v1.0[0m
+[0;32mI (38) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (43) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (47) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (52) boot: Enabling RNG early entropy source...[0m
+[0;32mI (57) boot: Partition Table:[0m
+[0;32mI (61) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (68) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (83) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (91) boot: End of partition table[0m
+[0;32mI (95) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0b4e4h ( 46308) map[0m
+[0;32mI (119) esp_image: segment 1: paddr=0001b50c vaddr=3ffb0000 size=02478h (  9336) load[0m
+[0;32mI (123) esp_image: segment 2: paddr=0001d98c vaddr=40080000 size=0268ch (  9868) load[0m
+[0;32mI (129) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=18990h (100752) map[0m
+[0;32mI (168) esp_image: segment 4: paddr=000389b8 vaddr=4008268c size=0bd64h ( 48484) load[0m
+[0;32mI (194) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (194) boot: Disabling RNG early entropy source...[0m
+[0;32mI (206) cpu_start: Multicore app[0m
+[0;32mI (215) cpu_start: Pro cpu start user code[0m
+[0;32mI (215) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (215) app_init: Application information:[0m
+[0;32mI (218) app_init: Project name:     SPE-LAN8651[0m
+[0;32mI (223) app_init: App version:      1[0m
+[0;32mI (227) app_init: Compile time:     Apr 10 2025 12:42:10[0m
+[0;32mI (233) app_init: ELF file SHA256:  7dcbe5762...[0m
+[0;32mI (239) app_init: ESP-IDF:          v5.3.1[0m
+[0;32mI (243) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (248) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (253) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (258) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (265) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (271) heap_init: At 3FFB4098 len 0002BF68 (175 KiB): DRAM[0m
+[0;32mI (277) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (284) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (290) heap_init: At 4008E3F0 len 00011C10 (71 KiB): IRAM[0m
+[0;32mI (298) spi_flash: detected chip: generic[0m
+[0;32mI (301) spi_flash: flash io: dio[0m
+[0;33mW (305) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (319) main_task: Started on CPU0[0m
+[0;32mI (329) main_task: Calling app_main()[0m
+[0;32mI (329) MAIN: Initializing SPI...[0m
+[0;32mI (329) SPI: SPI initialized successfully[0m
+[0;32mI (329) MAIN: Initializing TC6...[0m
+[0;32mI (339) TC6: TC6 initialized successfully![0m
+[0;32mI (339) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (349) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (349) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (359) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (359) TC6: SPI Transaction: Instance 0, Length 12[0m
+[0;32mI (369) TC6: TX data (first 16 bytes):[0m
+20 00 03 00 00 00 00 01 
+00 00 00 00 
+[0;32mI (369) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 20 00 03 00 
+00 00 00 01 
+[0;32mI (379) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (389) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (389) TC6: TX data (first 16 bytes):[0m
+20 00 03 00 00 00 00 01 
+FF FF FF FE 00 00 00 00 
+
+[0;32mI (399) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 20 00 03 00 
+00 00 00 01 00 00 00 00 
+
+[0;32mI (409) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (419) TC6: SPI Transaction: Instance 0, Length 12[0m
+[0;32mI (419) TC6: TX data (first 16 bytes):[0m
+00 00 01 00 00 00 00 00 
+00 00 00 00 
+[0;32mI (429) TC6: RX data (first 16 bytes):[0m
+C0 00 00 00 00 00 01 00 
+00 07 C1 B4 
+[0;32mI (439) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (439) TC6: SPI Transaction: Instance 0, Length 12[0m
+[0;32mI (449) TC6: TX data (first 16 bytes):[0m
+0A 00 94 00 00 00 00 00 
+00 00 00 00 
+[0;32mI (459) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 0A 00 94 00 
+00 07 C1 B4 
+[0;32mI (459) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (469) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (469) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (479) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (479) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (489) TC6: SPI Transaction: Instance 0, Length 12[0m
+[0;32mI (489) TC6: TX data (first 16 bytes):[0m
+20 00 04 01 00 00 00 26 
+00 00 00 00 
+[0;32mI (499) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 20 00 04 01 
+00 00 00 26 
+[0;32mI (509) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (509) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (519) TC6: TX data (first 16 bytes):[0m
+21 00 00 01 00 00 00 00 
+FF FF FF FF 00 00 00 00 
+
+[0;32mI (529) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 21 00 00 01 
+00 00 00 00 FF FF FF FF 
+
+[0;32mI (539) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (539) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (549) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (549) TC6: TX data (first 16 bytes):[0m
+24 00 91 00 00 00 96 60 
+FF FF 69 9F 00 00 00 00 
+
+[0;32mI (559) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 91 00 
+00 00 96 60 FF FF 69 9F 
+
+[0;32mI (569) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (579) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (579) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (589) TC6: TX data (first 16 bytes):[0m
+24 00 81 01 00 00 00 80 
+FF FF FF 7F 00 00 00 00 
+
+[0;32mI (599) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 81 01 
+00 00 00 80 FF FF FF 7F 
+
+[0;32mI (609) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (609) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (619) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (619) TC6: TX data (first 16 bytes):[0m
+21 00 77 01 00 00 00 28 
+FF FF FF D7 00 00 00 00 
+
+[0;32mI (629) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 21 00 77 01 
+00 00 00 28 FF FF FF D7 
+
+[0;32mI (639) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (649) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (649) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (659) TC6: TX data (first 16 bytes):[0m
+24 00 43 00 00 00 00 FF 
+FF FF FF 00 00 00 00 00 
+
+[0;32mI (669) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 43 00 
+00 00 00 FF FF FF FF 00 
+
+[0;32mI (669) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (679) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (679) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (689) TC6: TX data (first 16 bytes):[0m
+24 00 44 01 00 00 FF FF 
+FF FF 00 00 00 00 00 00 
+
+[0;32mI (699) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 44 01 
+00 00 FF FF FF FF 00 00 
+
+[0;32mI (709) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (709) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (719) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (719) TC6: TX data (first 16 bytes):[0m
+24 00 45 00 00 00 00 00 
+FF FF FF FF 00 00 00 00 
+
+[0;32mI (729) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 45 00 
+00 00 00 00 FF FF FF FF 
+
+[0;32mI (739) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (749) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (749) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (759) TC6: TX data (first 16 bytes):[0m
+24 00 53 01 00 00 00 FF 
+FF FF FF 00 00 00 00 00 
+
+[0;32mI (769) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 53 01 
+00 00 00 FF FF FF FF 00 
+
+[0;32mI (779) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (779) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (789) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (789) TC6: TX data (first 16 bytes):[0m
+24 00 54 00 00 00 FF FF 
+FF FF 00 00 00 00 00 00 
+
+[0;32mI (799) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 54 00 
+00 00 FF FF FF FF 00 00 
+
+[0;32mI (809) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (809) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (819) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (829) TC6: TX data (first 16 bytes):[0m
+24 00 55 01 00 00 00 00 
+FF FF FF FF 00 00 00 00 
+
+[0;32mI (829) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 55 01 
+00 00 00 00 FF FF FF FF 
+
+[0;32mI (839) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (849) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (849) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (859) TC6: TX data (first 16 bytes):[0m
+24 00 40 00 00 00 00 02 
+FF FF FF FD 00 00 00 00 
+
+[0;32mI (869) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 40 00 
+00 00 00 02 FF FF FF FD 
+
+[0;32mI (879) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (879) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (889) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (889) TC6: TX data (first 16 bytes):[0m
+24 00 50 01 00 00 00 02 
+FF FF FF FD 00 00 00 00 
+
+[0;32mI (899) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 50 01 
+00 00 00 02 FF FF FF FD 
+
+[0;32mI (909) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (919) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (919) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (929) TC6: TX data (first 16 bytes):[0m
+24 00 E9 00 00 00 9E 50 
+FF FF 61 AF 00 00 00 00 
+
+[0;32mI (939) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 E9 00 
+00 00 9E 50 FF FF 61 AF 
+
+[0;32mI (939) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (949) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (949) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (959) TC6: TX data (first 16 bytes):[0m
+24 00 F5 01 00 00 1C F8 
+FF FF E3 07 00 00 00 00 
+
+[0;32mI (969) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 F5 01 
+00 00 1C F8 FF FF E3 07 
+
+[0;32mI (979) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (979) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (989) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (989) TC6: TX data (first 16 bytes):[0m
+24 00 F4 00 00 00 C0 20 
+FF FF 3F DF 00 00 00 00 
+
+[0;32mI (999) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 F4 00 
+00 00 C0 20 FF FF 3F DF 
+
+[0;32mI (1009) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1019) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1019) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1029) TC6: TX data (first 16 bytes):[0m
+24 00 F8 00 00 00 9B 00 
+FF FF 64 FF 00 00 00 00 
+
+[0;32mI (1039) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 F8 00 
+00 00 9B 00 FF FF 64 FF 
+
+[0;32mI (1049) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1049) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1059) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1059) TC6: TX data (first 16 bytes):[0m
+24 00 F9 01 00 00 4E 53 
+FF FF B1 AC 00 00 00 00 
+
+[0;32mI (1069) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 F9 01 
+00 00 4E 53 FF FF B1 AC 
+
+[0;32mI (1079) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1089) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1089) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1099) TC6: TX data (first 16 bytes):[0m
+24 00 B0 00 00 00 01 03 
+FF FF FE FC 00 00 00 00 
+
+[0;32mI (1109) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 B0 00 
+00 00 01 03 FF FF FE FC 
+
+[0;32mI (1119) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1119) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1129) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1129) TC6: TX data (first 16 bytes):[0m
+24 00 B1 01 00 00 09 10 
+FF FF F6 EF 00 00 00 00 
+
+[0;32mI (1139) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 B1 01 
+00 00 09 10 FF FF F6 EF 
+
+[0;32mI (1149) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1149) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1159) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1169) TC6: TX data (first 16 bytes):[0m
+24 00 B2 01 00 00 1D 26 
+FF FF E2 D9 00 00 00 00 
+
+[0;32mI (1169) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 B2 01 
+00 00 1D 26 FF FF E2 D9 
+
+[0;32mI (1179) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1189) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1189) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1199) TC6: TX data (first 16 bytes):[0m
+24 00 B3 00 00 00 00 2A 
+FF FF FF D5 00 00 00 00 
+
+[0;32mI (1209) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 B3 00 
+00 00 00 2A FF FF FF D5 
+
+[0;32mI (1219) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1219) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1229) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1229) TC6: TX data (first 16 bytes):[0m
+24 00 B4 01 00 00 01 03 
+FF FF FE FC 00 00 00 00 
+
+[0;32mI (1239) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 B4 01 
+00 00 01 03 FF FF FE FC 
+
+[0;32mI (1249) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1259) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1259) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1269) TC6: TX data (first 16 bytes):[0m
+24 00 B5 00 00 00 07 0D 
+FF FF F8 F2 00 00 00 00 
+
+[0;32mI (1279) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 B5 00 
+00 00 07 0D FF FF F8 F2 
+
+[0;32mI (1289) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1289) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1299) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1299) TC6: TX data (first 16 bytes):[0m
+24 00 B6 00 00 00 17 20 
+FF FF E8 DF 00 00 00 00 
+
+[0;32mI (1309) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 B6 00 
+00 00 17 20 FF FF E8 DF 
+
+[0;32mI (1319) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1329) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1329) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1339) TC6: TX data (first 16 bytes):[0m
+24 00 B7 01 00 00 00 27 
+FF FF FF D8 00 00 00 00 
+
+[0;32mI (1349) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 B7 01 
+00 00 00 27 FF FF FF D8 
+
+[0;32mI (1359) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1359) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1369) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1369) TC6: TX data (first 16 bytes):[0m
+24 00 B8 01 00 00 05 09 
+FF FF FA F6 00 00 00 00 
+
+[0;32mI (1379) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 B8 01 
+00 00 05 09 FF FF FA F6 
+
+[0;32mI (1389) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1389) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1399) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1409) TC6: TX data (first 16 bytes):[0m
+24 00 B9 00 00 00 0E 13 
+FF FF F1 EC 00 00 00 00 
+
+[0;32mI (1409) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 B9 00 
+00 00 0E 13 FF FF F1 EC 
+
+[0;32mI (1419) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1429) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1429) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1439) TC6: TX data (first 16 bytes):[0m
+24 00 BA 00 00 00 1C 25 
+FF FF E3 DA 00 00 00 00 
+
+[0;32mI (1449) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 BA 00 
+00 00 1C 25 FF FF E3 DA 
+
+[0;32mI (1459) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1459) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1469) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1469) TC6: TX data (first 16 bytes):[0m
+24 00 BB 01 00 00 00 2B 
+FF FF FF D4 00 00 00 00 
+
+[0;32mI (1479) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 BB 01 
+00 00 00 2B FF FF FF D4 
+
+[0;32mI (1489) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1499) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1499) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1509) TC6: TX data (first 16 bytes):[0m
+20 00 0C 00 00 00 01 00 
+FF FF FE FF 00 00 00 00 
+
+[0;32mI (1519) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 20 00 0C 00 
+00 00 01 00 FF FF FE FF 
+
+[0;32mI (1529) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1529) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1539) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1539) TC6: TX data (first 16 bytes):[0m
+24 00 81 01 00 00 00 E0 
+FF FF FF 1F 00 00 00 00 
+
+[0;32mI (1549) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 81 01 
+00 00 00 E0 FF FF FF 1F 
+
+[0;32mI (1559) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1569) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1569) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1579) TC6: TX data (first 16 bytes):[0m
+24 00 D0 00 00 00 3F 31 
+FF FF C0 CE 00 00 00 00 
+
+[0;32mI (1589) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 D0 00 
+00 00 3F 31 FF FF C0 CE 
+
+[0;32mI (1599) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1599) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1609) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1609) TC6: TX data (first 16 bytes):[0m
+21 00 24 01 12 A3 04 00 
+ED 5C FB FF 00 00 00 00 
+
+[0;32mI (1619) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 21 00 24 01 
+12 A3 04 00 ED 5C FB FF 
+
+[0;32mI (1629) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1629) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1639) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1649) TC6: TX data (first 16 bytes):[0m
+21 00 25 00 00 00 56 34 
+FF FF A9 CB 00 00 00 00 
+
+[0;32mI (1649) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 21 00 25 00 
+00 00 56 34 FF FF A9 CB 
+
+[0;32mI (1659) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1669) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1669) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1679) TC6: TX data (first 16 bytes):[0m
+21 00 22 01 56 34 12 A3 
+A9 CB ED 5C 00 00 00 00 
+
+[0;32mI (1689) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 21 00 22 01 
+56 34 12 A3 A9 CB ED 5C 
+
+[0;32mI (1699) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1699) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1709) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1709) TC6: TX data (first 16 bytes):[0m
+21 00 01 00 00 00 00 00 
+FF FF FF FF 00 00 00 00 
+
+[0;32mI (1719) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 21 00 01 00 
+00 00 00 00 FF FF FF FF 
+
+[0;32mI (1729) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1739) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1739) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1749) TC6: TX data (first 16 bytes):[0m
+24 00 D8 01 00 00 00 05 
+FF FF FF FA 00 00 00 00 
+
+[0;32mI (1759) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 D8 01 
+00 00 00 05 FF FF FF FA 
+
+[0;32mI (1769) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1769) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1779) TC6: TX data (first 16 bytes):[0m
+24 00 DA 00 00 00 00 02 
+FF FF FF FD 00 00 00 00 
+
+[0;32mI (1789) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 DA 00 
+00 00 00 02 FF FF FF FD 
+
+[0;32mI (1799) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1799) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1809) TC6: TX data (first 16 bytes):[0m
+04 00 D9 01 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (1819) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 04 00 D9 01 
+00 00 00 53 FF FF FF AC 
+
+[0;32mI (1829) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1829) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1839) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1839) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1849) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1849) TC6: TX data (first 16 bytes):[0m
+24 00 D8 01 00 00 00 04 
+FF FF FF FB 00 00 00 00 
+
+[0;32mI (1859) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 D8 01 
+00 00 00 04 FF FF FF FB 
+
+[0;32mI (1869) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1869) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1879) TC6: TX data (first 16 bytes):[0m
+24 00 DA 00 00 00 00 02 
+FF FF FF FD 00 00 00 00 
+
+[0;32mI (1889) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 DA 00 
+00 00 00 02 FF FF FF FD 
+
+[0;32mI (1899) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1899) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1909) TC6: TX data (first 16 bytes):[0m
+04 00 D9 01 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (1919) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 04 00 D9 01 
+00 00 00 5F FF FF FF A0 
+
+[0;32mI (1929) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1929) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1939) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1939) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1949) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1949) TC6: TX data (first 16 bytes):[0m
+24 00 D8 01 00 00 00 08 
+FF FF FF F7 00 00 00 00 
+
+[0;32mI (1959) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 D8 01 
+00 00 00 08 FF FF FF F7 
+
+[0;32mI (1969) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (1979) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (1979) TC6: TX data (first 16 bytes):[0m
+24 00 DA 00 00 00 00 02 
+FF FF FF FD 00 00 00 00 
+
+[0;32mI (1989) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 DA 00 
+00 00 00 02 FF FF FF FD 
+
+[0;32mI (1999) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2009) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (2009) TC6: TX data (first 16 bytes):[0m
+04 00 D9 01 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (2019) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 04 00 D9 01 
+00 00 00 E0 FF FF FF 1F 
+
+[0;32mI (2029) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2039) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2039) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (2049) TC6: TX data (first 16 bytes):[0m
+04 00 84 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (2059) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 04 00 84 00 
+00 00 18 B3 FF FF E7 4C 
+
+[0;32mI (2069) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2069) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2079) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (2079) TC6: TX data (first 16 bytes):[0m
+04 00 8A 01 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (2089) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 04 00 8A 01 
+00 00 CC 00 FF FF 33 FF 
+
+[0;32mI (2099) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2099) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2109) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (2119) TC6: TX data (first 16 bytes):[0m
+04 00 AD 01 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (2119) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 04 00 AD 01 
+00 00 0B 11 FF FF F4 EE 
+
+[0;32mI (2129) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2139) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2139) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (2149) TC6: TX data (first 16 bytes):[0m
+04 00 AE 01 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (2159) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 04 00 AE 01 
+00 00 11 17 FF FF EE E8 
+
+[0;32mI (2169) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2169) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2179) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (2179) TC6: TX data (first 16 bytes):[0m
+04 00 AF 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (2189) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 04 00 AF 00 
+00 00 1C 22 FF FF E3 DD 
+
+[0;32mI (2199) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2209) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2209) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2219) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2219) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2229) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (2229) TC6: TX data (first 16 bytes):[0m
+24 00 84 01 00 00 20 D3 
+FF FF DF 2C 00 00 00 00 
+
+[0;32mI (2239) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 84 01 
+00 00 20 D3 FF FF DF 2C 
+
+[0;32mI (2249) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2259) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (2259) TC6: TX data (first 16 bytes):[0m
+24 00 8A 00 00 00 A0 00 
+FF FF 5F FF 00 00 00 00 
+
+[0;32mI (2269) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 8A 00 
+00 00 A0 00 FF FF 5F FF 
+
+[0;32mI (2279) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2289) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2289) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (2299) TC6: TX data (first 16 bytes):[0m
+24 00 AD 00 00 00 04 08 
+FF FF FB F7 00 00 00 00 
+
+[0;32mI (2309) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 AD 00 
+00 00 04 08 FF FF FB F7 
+
+[0;32mI (2319) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2319) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2329) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (2329) TC6: TX data (first 16 bytes):[0m
+24 00 AE 00 00 00 08 0D 
+FF FF F7 F2 00 00 00 00 
+
+[0;32mI (2339) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 AE 00 
+00 00 08 0D FF FF F7 F2 
+
+[0;32mI (2349) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2349) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2359) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (2369) TC6: TX data (first 16 bytes):[0m
+24 00 AF 01 00 00 10 15 
+FF FF EF EA 00 00 00 00 
+
+[0;32mI (2369) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 AF 01 
+00 00 10 15 FF FF EF EA 
+
+[0;32mI (2379) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2389) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2389) TC6: TC6 registers initialized successfully![0m
+[0;32mI (2399) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (2409) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (2419) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 80 00 00 3F 
+80 00 00 3F 80 00 00 3F 
+
+[0;32mI (2419) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2429) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (2429) TC6: TX data (first 16 bytes):[0m
+24 00 87 01 00 00 80 83 
+FF FF 7F 7C 00 00 00 00 
+
+[0;32mI (2439) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 24 00 87 01 
+00 00 80 83 FF FF 7F 7C 
+
+[0;32mI (2449) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2559) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (2559) TC6: TX data (first 16 bytes):[0m
+20 00 04 01 00 00 90 26 
+FF FF 6F D9 00 00 00 00 
+
+[0;32mI (2559) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 20 00 04 01 
+00 00 90 26 FF FF 6F D9 
+
+[0;32mI (2569) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (2669) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (2669) TC6: TX data (first 16 bytes):[0m
+21 00 00 01 00 00 00 0C 
+FF FF FF F3 00 00 00 00 
+
+[0;32mI (2669) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 21 00 00 01 
+00 00 00 0C FF FF FF F3 
+
+[0;32mI (2679) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;31mE (2779) TC6_MAIN: TC6 error occurred: 7[0m
+[0;32mI (3479) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3479) TC6: SPI Transaction: Instance 0, Length 12[0m
+[0;32mI (3479) TC6: TX data (first 16 bytes):[0m
+00 00 00 01 00 00 00 00 
+00 00 00 00 
+[0;32mI (3479) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 01 
+00 00 00 11 
+[0;32mI (3489) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3509) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (3509) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3509) TC6: RX data (first 16 bytes):[0m
+C0 03 FF EE 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3519) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3529) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3539) MAIN: LAN8651 Chip ID: 0x00000011[0m
+[0;32mI (3539) MAIN: LAN8651 Chip Revision: 4[0m
+[0;32mI (3649) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (3649) TC6: TX data (first 16 bytes):[0m
+00 00 08 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3649) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 08 00 
+00 00 00 70 FF FF FF 8F 
+
+[0;32mI (3659) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3659) TC6_MAIN: TC6 register event: 5[0m
+[0;32mI (3669) TC6_MAIN: TC6 register event: 6[0m
+[0;32mI (3669) TC6_MAIN: TC6 register event: 7[0m
+[0;32mI (3679) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3679) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (3689) TC6: TX data (first 16 bytes):[0m
+20 00 08 01 00 00 00 70 
+FF FF FF 8F 00 00 00 00 
+
+[0;32mI (3699) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 20 00 08 01 
+00 00 00 70 FF FF FF 8F 
+
+[0;32mI (3709) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3719) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3719) TC6: SPI Transaction: Instance 0, Length 16[0m
+[0;32mI (3719) TC6: TX data (first 16 bytes):[0m
+00 00 09 01 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3729) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 09 01 
+00 00 00 00 FF FF FF FF 
+
+[0;32mI (3739) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3759) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (3759) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3759) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3769) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3779) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (3779) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3789) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3799) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3809) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (3809) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3819) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3829) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3839) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (3839) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3849) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3859) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3869) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (3869) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3879) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3889) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3899) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (3899) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3909) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3919) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3929) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (3929) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3939) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3949) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3959) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (3959) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3969) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3969) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (3989) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (3989) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3989) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (3999) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4019) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4019) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4019) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4029) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4049) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4049) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4049) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4059) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4079) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4079) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4079) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4089) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4109) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4109) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4109) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4119) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4139) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4139) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4139) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4149) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4169) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4169) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4169) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4179) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4189) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4189) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4199) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4209) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4219) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4219) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4229) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4239) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4249) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4249) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4259) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4269) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4279) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4279) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4289) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4299) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4309) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4309) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4319) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4329) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4339) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4339) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4349) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4349) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4369) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4369) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4379) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4379) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4399) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4399) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4399) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4409) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4429) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4429) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4429) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4439) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4459) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4459) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4459) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4469) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4489) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4489) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4489) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4499) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4519) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4519) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4519) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4529) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4549) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4549) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4549) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4559) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4569) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4569) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4579) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4589) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4599) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4599) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4609) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4619) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4629) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4629) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4639) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4649) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4659) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4659) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4669) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4679) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4689) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4689) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4699) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4709) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4719) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4719) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4729) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4729) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4749) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4749) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4759) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4759) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4779) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4779) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4779) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4789) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4809) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4809) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4809) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4819) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4839) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4839) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4839) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4849) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4869) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4869) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4869) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4879) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4899) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4899) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4899) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4909) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4929) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4929) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4929) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4939) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4949) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4949) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4959) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4969) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (4979) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (4979) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4989) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (4999) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5009) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5009) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5019) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5029) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5029) MAIN: LAN8651 status - Synced: YES, TX Credit: 31, RX Credit: 0[0m
+[0;32mI (5039) MAIN: TC6 registers initialization complete[0m
+[0;32mI (5059) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5059) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5059) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5069) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5079) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5079) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5089) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5099) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5109) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5109) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5119) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5129) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5139) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5139) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5149) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5159) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5169) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5169) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5179) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5189) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5199) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5199) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5209) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5219) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5229) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5229) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5239) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5249) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5259) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5259) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5269) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5269) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5289) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5289) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5289) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5299) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5319) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5319) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5319) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5329) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5349) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5349) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5349) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5359) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5379) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5379) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5379) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5389) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5409) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5409) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5409) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5419) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5439) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5439) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5439) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5449) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5469) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5469) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5469) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5479) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5489) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5489) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5499) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5509) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5519) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5519) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5529) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5539) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5549) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5549) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5559) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5569) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5579) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5579) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5589) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5599) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5609) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5609) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5619) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5629) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5639) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5639) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5649) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5649) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5669) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5669) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5679) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5679) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5699) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5699) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5699) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5709) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5729) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5729) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5729) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5739) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5759) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5759) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5759) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5769) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5789) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5789) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5789) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5799) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5819) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5819) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5819) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5829) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5849) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5849) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5849) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5859) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5869) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5869) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5879) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5889) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5899) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5899) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5909) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5919) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5929) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5929) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5939) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5949) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5959) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5959) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5969) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5979) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (5989) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (5989) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (5999) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6009) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6019) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6019) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6029) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6039) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6049) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6049) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6059) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6059) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6079) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6079) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6079) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6089) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6109) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6109) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6109) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6119) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6139) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6139) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6139) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6149) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6169) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6169) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6169) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6179) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6199) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6199) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6199) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6209) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6229) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6229) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6229) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6239) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6259) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6259) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6259) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6269) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6279) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6279) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6289) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6299) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6309) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6309) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6319) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6329) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6339) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6339) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6349) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6359) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6369) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6369) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6379) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6389) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6399) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6399) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6409) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6419) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6429) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6429) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6439) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6439) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6459) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6459) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6469) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6469) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6489) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6489) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6489) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6499) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6519) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6519) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6519) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6529) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6549) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6549) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6549) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6559) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6579) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6579) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6579) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6589) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6609) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6609) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6609) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6619) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6639) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6639) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6639) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6649) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6659) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6659) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6669) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6679) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6689) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6689) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6699) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6709) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6719) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6719) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6729) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6739) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6749) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6749) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6759) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6769) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6779) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6779) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6789) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6799) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6809) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6809) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6819) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6819) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6839) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6839) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6849) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6849) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6869) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6869) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6869) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6879) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6899) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6899) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6899) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6909) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6929) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6929) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6929) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6939) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6959) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6959) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6959) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6969) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (6989) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (6989) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6989) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (6999) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7019) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7019) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7019) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7029) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7039) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7039) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7049) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7059) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7069) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7069) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7079) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7089) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7099) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7099) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7109) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7119) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7129) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7129) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7139) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7149) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7159) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7159) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7169) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7179) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7189) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7189) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7199) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7209) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7219) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7219) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7229) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7229) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7249) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7249) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7249) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7259) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7279) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7279) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7279) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7289) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7309) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7309) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7309) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7319) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7339) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7339) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7339) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7349) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7369) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7369) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7369) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7379) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7399) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7399) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7399) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7409) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7429) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7429) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7429) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7439) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7449) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7449) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7459) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7469) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7479) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7479) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7489) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7499) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7509) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7509) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7519) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7529) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7539) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7539) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7549) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7559) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7569) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7569) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7579) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7589) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7599) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7599) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7609) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7609) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7629) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7629) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7639) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7639) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7659) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7659) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7659) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7669) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7689) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7689) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7689) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7699) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7719) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7719) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7719) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7729) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7749) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7749) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7749) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7759) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7779) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7779) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7779) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7789) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7809) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7809) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7809) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7819) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7829) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7829) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7839) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7849) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7859) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7859) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7869) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7879) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7889) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7889) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7899) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7909) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7919) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7919) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7929) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7939) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7949) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7949) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7959) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7969) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (7979) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (7979) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7989) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (7999) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8009) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8009) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8019) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8019) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8039) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8039) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8039) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8049) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8069) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8069) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8069) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8079) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8099) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8099) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8099) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8109) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8129) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8129) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8129) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8139) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8159) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8159) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8159) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8169) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8189) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8189) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8189) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8199) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8219) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8219) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8219) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8229) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8239) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8239) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8249) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8259) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8269) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8269) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8279) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8289) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8299) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8299) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8309) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8319) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8329) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8329) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8339) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8349) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8359) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8359) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8369) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8379) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8389) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8389) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8399) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8399) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8419) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8419) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8419) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8429) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8449) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8449) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8449) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8459) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8479) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8479) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8479) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8489) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8509) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8509) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8509) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8519) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8539) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8539) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8539) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8549) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8569) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8569) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8569) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8579) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8599) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8599) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8599) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8609) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8619) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8619) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8629) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8639) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8649) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8649) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8659) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8669) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8679) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8679) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8689) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8699) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8709) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8709) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8719) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8729) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8739) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8739) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8749) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8759) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8769) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8769) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8779) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8779) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8799) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8799) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8809) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8809) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8829) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8829) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8829) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8839) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8859) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8859) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8859) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8869) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8889) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8889) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8889) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8899) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8919) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8919) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8919) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8929) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8949) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8949) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8949) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8959) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8979) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8979) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8979) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (8989) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (8999) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (8999) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9009) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9019) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9029) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9029) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9039) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9049) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9059) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9059) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9069) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9079) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9089) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9089) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9099) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9109) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9119) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9119) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9129) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9139) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9149) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9149) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9159) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9169) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9179) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9179) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9189) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9189) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9209) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9209) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9209) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9219) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9239) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9239) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9239) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9249) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9269) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9269) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9269) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9279) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9299) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9299) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9299) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9309) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9329) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9329) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9329) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9339) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9359) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9359) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9359) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9369) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9389) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9389) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9389) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9399) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9409) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9409) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9419) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9429) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9439) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9439) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9449) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9459) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9469) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9469) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9479) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9489) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9499) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9499) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9509) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9519) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9529) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9529) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9539) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9549) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9559) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9559) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9569) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9569) TC6_MAIN: TC6_CB_OnNeedService called[0m
+[0;32mI (9589) TC6: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (9589) TC6: TX data (first 16 bytes):[0m
+80 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 
+
+[0;32mI (9599) TC6: RX data (first 16 bytes):[0m
+00 00 00 00 00 00 00 00 
+00 00 00 00 00 00 00 00 

@@ -1,0 +1,159 @@
+2: SPI Speed      : 40MHzets Jun  8 2016 00:22:57
+
+rst:0x1 (POWERON_RESET),boot:0x17 (SPI_FAST_FLASH_BOOT)
+configsip: 0, SPIWP:0xee
+clk_drv:0x00,q_drv:0x00,d_drv:0x00,cs0_drv:0x00,hd_drv:0x00,wp_drv:0x00
+mode:DIO, clock div:2
+load:0x3fff0030,len:7176
+load:0x40078000,len:15564
+ho 0 tail 12 room 4
+load:0x40080400,len:4
+load:0x40080404,len:3904
+entry 0x40080640
+[0;32mI (30) boot: ESP-IDF v5.3.1 2nd stage bootloader[0m
+[0;32mI (30) boot: compile time Apr 10 2025 12:42:35[0m
+[0;32mI (30) boot: Multicore bootloader[0m
+[0;32mI (34) boot: chip revision: v1.0[0m
+[0;32mI (38) boot.esp32: SPI Speed      : 40MHz[0m
+[0;32mI (43) boot.esp32: SPI Mode       : DIO[0m
+[0;32mI (47) boot.esp32: SPI Flash Size : 2MB[0m
+[0;32mI (52) boot: Enabling RNG early entropy source...[0m
+[0;32mI (57) boot: Partition Table:[0m
+[0;32mI (61) boot: ## Label            Usage          Type ST Offset   Length[0m
+[0;32mI (68) boot:  0 nvs              WiFi data        01 02 00009000 00006000[0m
+[0;32mI (76) boot:  1 phy_init         RF data          01 01 0000f000 00001000[0m
+[0;32mI (83) boot:  2 factory          factory app      00 00 00010000 00100000[0m
+[0;32mI (91) boot: End of partition table[0m
+[0;32mI (95) esp_image: segment 0: paddr=00010020 vaddr=3f400020 size=0af04h ( 44804) map[0m
+[0;32mI (119) esp_image: segment 1: paddr=0001af2c vaddr=3ffb0000 size=02478h (  9336) load[0m
+[0;32mI (122) esp_image: segment 2: paddr=0001d3ac vaddr=40080000 size=02c6ch ( 11372) load[0m
+[0;32mI (129) esp_image: segment 3: paddr=00020020 vaddr=400d0020 size=16558h ( 91480) map[0m
+[0;32mI (164) esp_image: segment 4: paddr=00036580 vaddr=40082c6c size=0b784h ( 46980) load[0m
+[0;32mI (190) boot: Loaded app from partition at offset 0x10000[0m
+[0;32mI (190) boot: Disabling RNG early entropy source...[0m
+[0;32mI (202) cpu_start: Multicore app[0m
+[0;32mI (210) cpu_start: Pro cpu start user code[0m
+[0;32mI (211) cpu_start: cpu freq: 160000000 Hz[0m
+[0;32mI (211) app_init: Application information:[0m
+[0;32mI (213) app_init: Project name:     SPE-LAN8651[0m
+[0;32mI (219) app_init: App version:      1[0m
+[0;32mI (223) app_init: Compile time:     Apr 10 2025 12:42:10[0m
+[0;32mI (229) app_init: ELF file SHA256:  781e92304...[0m
+[0;32mI (234) app_init: ESP-IDF:          v5.3.1[0m
+[0;32mI (239) efuse_init: Min chip rev:     v0.0[0m
+[0;32mI (244) efuse_init: Max chip rev:     v3.99 [0m
+[0;32mI (249) efuse_init: Chip rev:         v1.0[0m
+[0;32mI (254) heap_init: Initializing. RAM available for dynamic allocation:[0m
+[0;32mI (261) heap_init: At 3FFAE6E0 len 00001920 (6 KiB): DRAM[0m
+[0;32mI (267) heap_init: At 3FFB4060 len 0002BFA0 (175 KiB): DRAM[0m
+[0;32mI (273) heap_init: At 3FFE0440 len 00003AE0 (14 KiB): D/IRAM[0m
+[0;32mI (279) heap_init: At 3FFE4350 len 0001BCB0 (111 KiB): D/IRAM[0m
+[0;32mI (286) heap_init: At 4008E3F0 len 00011C10 (71 KiB): IRAM[0m
+[0;32mI (294) spi_flash: detected chip: generic[0m
+[0;32mI (297) spi_flash: flash io: dio[0m
+[0;33mW (301) spi_flash: Detected size(4096k) larger than the size in the binary image header(2048k). Using the size in the binary image header.[0m
+[0;32mI (315) main_task: Started on CPU0[0m
+[0;32mI (325) main_task: Calling app_main()[0m
+[0;32mI (325) TC6_MAIN: Initializing SPI...[0m
+[0;32mI (325) TC6_MAIN: SPI initialized successfully[0m
+[0;32mI (325) TC6_MAIN: Initializing TC6 library...[0m
+[0;32mI (335) TC6_MAIN: TC6 initialized successfully![0m
+[0;32mI (335) TC6_MAIN: SPI Transaction: Instance 0, Length 136[0m
+[0;32mI (345) TC6_MAIN: TX buffer:[0m
+[0;32mI (345) TC6_MAIN:   pTx[0] = 0x80[0m
+[0;32mI (355) TC6_MAIN:   pTx[1] = 0x00[0m
+[0;32mI (355) TC6_MAIN:   pTx[2] = 0x00[0m
+[0;32mI (355) TC6_MAIN:   pTx[3] = 0x00[0m
+[0;32mI (365) TC6_MAIN:   pTx[4] = 0x00[0m
+[0;32mI (365) TC6_MAIN:   pTx[5] = 0x00[0m
+[0;32mI (375) TC6_MAIN:   pTx[6] = 0x00[0m
+[0;32mI (375) TC6_MAIN:   pTx[7] = 0x00[0m
+[0;32mI (375) TC6_MAIN:   pTx[8] = 0x00[0m
+[0;32mI (385) TC6_MAIN:   pTx[9] = 0x00[0m
+[0;32mI (385) TC6_MAIN:   pTx[10] = 0x00[0m
+[0;32mI (395) TC6_MAIN:   pTx[11] = 0x00[0m
+[0;32mI (395) TC6_MAIN:   pTx[12] = 0x00[0m
+[0;32mI (395) TC6_MAIN:   pTx[13] = 0x00[0m
+[0;32mI (405) TC6_MAIN:   pTx[14] = 0x00[0m
+[0;32mI (405) TC6_MAIN:   pTx[15] = 0x00[0m
+[0;32mI (415) TC6_MAIN:   pTx[16] = 0x00[0m
+[0;32mI (415) TC6_MAIN:   pTx[17] = 0x00[0m
+[0;32mI (415) TC6_MAIN:   pTx[18] = 0x00[0m
+[0;32mI (425) TC6_MAIN:   pTx[19] = 0x00[0m
+[0;32mI (425) TC6_MAIN:   pTx[20] = 0x00[0m
+[0;32mI (435) TC6_MAIN:   pTx[21] = 0x00[0m
+[0;32mI (435) TC6_MAIN:   pTx[22] = 0x00[0m
+[0;32mI (445) TC6_MAIN:   pTx[23] = 0x00[0m
+[0;32mI (445) TC6_MAIN:   pTx[24] = 0x00[0m
+[0;32mI (445) TC6_MAIN:   pTx[25] = 0x00[0m
+[0;32mI (455) TC6_MAIN:   pTx[26] = 0x00[0m
+[0;32mI (455) TC6_MAIN:   pTx[27] = 0x00[0m
+[0;32mI (465) TC6_MAIN:   pTx[28] = 0x00[0m
+[0;32mI (465) TC6_MAIN:   pTx[29] = 0x00[0m
+[0;32mI (465) TC6_MAIN:   pTx[30] = 0x00[0m
+[0;32mI (475) TC6_MAIN:   pTx[31] = 0x00[0m
+[0;32mI (475) TC6_MAIN:   pTx[32] = 0x00[0m
+[0;32mI (485) TC6_MAIN:   pTx[33] = 0x00[0m
+[0;32mI (485) TC6_MAIN:   pTx[34] = 0x00[0m
+[0;32mI (485) TC6_MAIN:   pTx[35] = 0x00[0m
+[0;32mI (495) TC6_MAIN:   pTx[36] = 0x00[0m
+[0;32mI (495) TC6_MAIN:   pTx[37] = 0x00[0m
+[0;32mI (505) TC6_MAIN:   pTx[38] = 0x00[0m
+[0;32mI (505) TC6_MAIN:   pTx[39] = 0x00[0m
+[0;32mI (505) TC6_MAIN:   pTx[40] = 0x00[0m
+[0;32mI (515) TC6_MAIN:   pTx[41] = 0x00[0m
+[0;32mI (515) TC6_MAIN:   pTx[42] = 0x00[0m
+[0;32mI (525) TC6_MAIN:   pTx[43] = 0x00[0m
+[0;32mI (525) TC6_MAIN:   pTx[44] = 0x00[0m
+[0;32mI (525) TC6_MAIN:   pTx[45] = 0x00[0m
+[0;32mI (535) TC6_MAIN:   pTx[46] = 0x00[0m
+[0;32mI (535) TC6_MAIN:   pTx[47] = 0x00[0m
+[0;32mI (545) TC6_MAIN:   pTx[48] = 0x00[0m
+[0;32mI (545) TC6_MAIN:   pTx[49] = 0x00[0m
+[0;32mI (555) TC6_MAIN:   pTx[50] = 0x00[0m
+[0;32mI (555) TC6_MAIN:   pTx[51] = 0x00[0m
+[0;32mI (555) TC6_MAIN:   pTx[52] = 0x00[0m
+[0;32mI (565) TC6_MAIN:   pTx[53] = 0x00[0m
+[0;32mI (565) TC6_MAIN:   pTx[54] = 0x00[0m
+[0;32mI (575) TC6_MAIN:   pTx[55] = 0x00[0m
+[0;32mI (575) TC6_MAIN:   pTx[56] = 0x00[0m
+[0;32mI (575) TC6_MAIN:   pTx[57] = 0x00[0m
+[0;32mI (585) TC6_MAIN:   pTx[58] = 0x00[0m
+[0;32mI (585) TC6_MAIN:   pTx[59] = 0x00[0m
+[0;32mI (595) TC6_MAIN:   pTx[60] = 0x00[0m
+[0;32mI (595) TC6_MAIN:   pTx[61] = 0x00[0m
+[0;32mI (595) TC6_MAIN:   pTx[62] = 0x00[0m
+[0;32mI (605) TC6_MAIN:   pTx[63] = 0x00[0m
+[0;32mI (605) TC6_MAIN:   pTx[64] = 0x00[0m
+[0;32mI (615) TC6_MAIN:   pTx[65] = 0x00[0m
+[0;32mI (615) TC6_MAIN:   pTx[66] = 0x00[0m
+[0;32mI (615) TC6_MAIN:   pTx[67] = 0x00[0m
+[0;32mI (625) TC6_MAIN:   pTx[68] = 0x80[0m
+[0;32mI (625) TC6_MAIN:   pTx[69] = 0x00[0m
+[0;32mI (635) TC6_MAIN:   pTx[70] = 0x00[0m
+[0;32mI (635) TC6_MAIN:   pTx[71] = 0x00[0m
+[0;32mI (635) TC6_MAIN:   pTx[72] = 0x00[0m
+[0;32mI (645) TC6_MAIN:   pTx[73] = 0x00[0m
+[0;32mI (645) TC6_MAIN:   pTx[74] = 0x00[0m
+[0;32mI (655) TC6_MAIN:   pTx[75] = 0x00[0m
+[0;32mI (655) TC6_MAIN:   pTx[76] = 0x00[0m
+[0;32mI (665) TC6_MAIN:   pTx[77] = 0x00[0m
+[0;32mI (665) TC6_MAIN:   pTx[78] = 0x00[0m
+[0;32mI (665) TC6_MAIN:   pTx[79] = 0x00[0m
+[0;32mI (675) TC6_MAIN:   pTx[80] = 0x00[0m
+[0;32mI (675) TC6_MAIN:   pTx[81] = 0x00[0m
+[0;32mI (685) TC6_MAIN:   pTx[82] = 0x00[0m
+[0;32mI (685) TC6_MAIN:   pTx[83] = 0x00[0m
+[0;32mI (685) TC6_MAIN:   pTx[84] = 0x00[0m
+[0;32mI (695) TC6_MAIN:   pTx[85] = 0x00[0m
+[0;32mI (695) TC6_MAIN:   pTx[86] = 0x00[0m
+[0;32mI (705) TC6_MAIN:   pTx[87] = 0x00[0m
+[0;32mI (705) TC6_MAIN:   pTx[88] = 0x00[0m
+[0;32mI (705) TC6_MAIN:   pTx[89] = 0x00[0m
+[0;32mI (715) TC6_MAIN:   pTx[90] = 0x00[0m
+[0;32mI (715) TC6_MAIN:   pTx[91] = 0x00[0m
+[0;32mI (725) TC6_MAIN:   pTx[92] = 0x00[0m
+[0;32mI (725) TC6_MAIN:   pTx[93] = 0x00[0m
+[0;32mI (725) TC6_MAIN:   pTx[94] = 0x00[0m
+[0;32mI (735) TC6_MAIN:   pTx[95] = 0x00[0m
+[0;32mI (735) TC6_MAIN:   pTx[96]
