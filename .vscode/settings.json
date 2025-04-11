@@ -12,6 +12,8 @@
         "string.h": "c",
         "inttypes.h": "c",
         "main.h": "c",
-        "spi.h": "c"
+        "spi.h": "c",
+        "compare": "c",
+        "cstdlib": "c"
     }
 }

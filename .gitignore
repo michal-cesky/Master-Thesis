@@ -1,0 +1,10 @@
+# Ignorovat složku build
+build/
+.vscode/
+
+# Ignorovat další dočasné soubory
+*.log
+*.o
+*.d
+*.bin
+*.elf

@@ -13,7 +13,7 @@
 #define PIN_NUM_RESET   4
 #define IRQ_PIN 21
 
-#define RX_QUEUE_SIZE 10
+//#define RX_QUEUE_SIZE 10
 
 static const char *TAG = "TC6_MAIN";
 
