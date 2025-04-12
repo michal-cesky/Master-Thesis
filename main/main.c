@@ -11,7 +11,7 @@
 #include "ethernet.h"
 
 
-uint8_t macAddress[6] = {0x00, 0x04, 0xA3, 0x12, 0x50, 0x56}; // Příklad MAC adresy
+uint8_t macAddress[6] = DEVICE_MAC;
 
 
 void app_main(void)

@@ -33,4 +33,5 @@ void RxTask(void *pvParameters);
 void PrintARPTable(void);
 void bin_to_hex(const uint8_t *data, size_t length, char *output, size_t output_size);
 void bin_to_string(const uint8_t *data, size_t length, char *output, size_t output_size);
+bool extract_payload(const uint8_t *frame_data, size_t frame_length, const uint8_t **payload, size_t *payload_length);
 #endif

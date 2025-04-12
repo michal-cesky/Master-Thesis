@@ -1,20 +1,22 @@
-#include "ethernet.h"
-#include "esp_log.h"
-#include "lan8651.h"
 #include <string.h>
-#include "esp_err.h"
+#include "esp_log.h"
+
 
 #include "lwip/init.h"
 #include "lwip/netif.h"
 #include "lwip/tcpip.h"
-#include "lwip/udp.h"
 #include "lwip/err.h"
-#include "lwip/pbuf.h"
 #include "lwip/etharp.h"
+#include "lwip/udp.h"
 
 #include "netif/ethernet.h"
-#include "esp_netif.h"
+#include <netinet/in.h>
+#include <arpa/inet.h>
+#include <sys/socket.h>
+
 #include "main.h"
+#include "lan8651.h"
+#include "ethernet.h"
 
 static EthernetFrame_t currentFrame;
 static struct netif netif;
@@ -45,27 +47,24 @@ void TC6_CB_OnRxEthernetSlice(TC6_t *pInst, const uint8_t *pBuf, uint16_t offset
 
     ESP_LOGI("ETHERNET", "Ethernet slice received: offset=%u, length=%u", offset, sliceLen);
 
-    // Pokud je offset 0, začíná nový rámec
     if (offset == 0) {
         currentOffset = 0;
-        memset(&currentFrame, 0, sizeof(currentFrame)); // Vymaž aktuální rámec
+        memset(&currentFrame, 0, sizeof(currentFrame)); 
     }
 
-    // Zkontroluj, zda se rámec vejde do bufferu
     if ((currentOffset + sliceLen) <= sizeof(currentFrame.data)) {
-        memcpy(currentFrame.data + currentOffset, pBuf, sliceLen); // Zkopíruj slice do bufferu
+        memcpy(currentFrame.data + currentOffset, pBuf, sliceLen);
         currentOffset += sliceLen;
     } else {
         ESP_LOGE("ETHERNET", "Frame size exceeds buffer limit, dropping frame");
-        currentOffset = 0; // Resetuj offset
+        currentOffset = 0;
         return;
     }
 
-    // Pokud je slice poslední částí rámce
     if ((offset + sliceLen) >= currentFrame.length) {
         currentFrame.length = currentOffset;
 
-        // 1) Předáme rámec LWIP, aby zpracoval ARP/IP/UDP:
+        // Give frame to LWIP
         struct pbuf *p = pbuf_alloc(PBUF_RAW, currentFrame.length, PBUF_POOL);
         if (p != NULL) {
             memcpy(p->payload, currentFrame.data, currentFrame.length);
@@ -78,7 +77,6 @@ void TC6_CB_OnRxEthernetSlice(TC6_t *pInst, const uint8_t *pBuf, uint16_t offset
         ESP_LOGI("ETHERNET", "Received complete frame: length=%u", currentFrame.length);
         ESP_LOGI("ETHERNET", "Frame content: %.*s", currentFrame.length, currentFrame.data);
 
-        // Ulož rámec do fronty pro další zpracování
         if (rxQueue != NULL) {
             if (xQueueSend(rxQueue, &currentFrame, pdMS_TO_TICKS(100)) != pdTRUE) {
                 ESP_LOGW("ETHERNET", "RX queue is full, dropping frame");
@@ -91,13 +89,13 @@ void TC6_CB_OnRxEthernetSlice(TC6_t *pInst, const uint8_t *pBuf, uint16_t offset
 void InitLWIP(void)
 {
     ESP_LOGI("LWIP", "Initializing TCP/IP stack...");
-    tcpip_init(NULL, NULL); // Inicializace TCP/IP stacku
+    tcpip_init(NULL, NULL);
 
-    // Konfigurace síťového rozhraní
+    //Netvork config
     ip4_addr_t ipaddr, netmask, gw;
-    IP4_ADDR(&ipaddr, 192, 168, 1, 50); // Nastavení IP adresy
-    IP4_ADDR(&netmask, 255, 255, 255, 0); // Nastavení masky sítě
-    IP4_ADDR(&gw, 192, 168, 1, 1); // Nastavení brány
+    ip4addr_aton(DEVICE_IP, &ipaddr);
+    ip4addr_aton(DEVICE_NETMASK, &netmask);
+    ip4addr_aton(DEVICE_GATEWAY, &gw);
 
     printf("1\n");
 
@@ -122,42 +120,49 @@ void InitLWIP(void)
 
 void SendUDPPacket(const char *data, uint16_t length, const char *dest_ip, uint16_t dest_port)
 {
-    struct udp_pcb *pcb = udp_new();
-    if (!pcb) {
-        ESP_LOGE("UDP", "Failed to create UDP PCB");
-        return;
-    }
+    int sock;
+    struct sockaddr_in dest_addr;
 
-    ip_addr_t dest_addr;
+
     if (!ipaddr_aton(dest_ip, &dest_addr)) {
         ESP_LOGE("UDP", "Invalid destination IP address");
-        udp_remove(pcb);
         return;
     }
 
-    printf("true\n");
+    // Create socket
+    sock = socket(AF_INET, SOCK_DGRAM, IPPROTO_UDP);
+    if (sock < 0) {
+        ESP_LOGE("SOCKET", "Failed to create socket");
+        return;
+    }
+    else {
+        ESP_LOGI("SOCKET", "Socket created successfully");
+    }
 
-    printf("true 2\n");
-
-
-    struct pbuf *p = pbuf_alloc(PBUF_TRANSPORT, length, PBUF_RAM);
-    if (!p) {
-        ESP_LOGE("UDP", "Failed to allocate pbuf");
-        udp_remove(pcb);
+    memset(&dest_addr, 0, sizeof(dest_addr));
+    dest_addr.sin_family = AF_INET;
+    dest_addr.sin_port = htons(dest_port);
+    if (inet_aton(dest_ip, &dest_addr.sin_addr) == 0) {
+        ESP_LOGE("SOCKET", "Invalid destination IP address");
+        close(sock);
         return;
     }
 
-    memcpy(p->payload, data, length);
-
-    err_t err = udp_sendto(pcb, p, &dest_addr, dest_port);
-    if (err == ERR_OK) {
-        ESP_LOGI("UDP", "Packet sent successfully");
+    // Send data
+    int sent_len = sendto(sock, data, length, 0, (struct sockaddr *)&dest_addr, sizeof(dest_addr));
+    if (sent_len < 0) {
+        ESP_LOGE("SOCKET", "Failed to send UDP packet");
     } else {
-        ESP_LOGE("UDP", "Failed to send packet: %d", err);
+        ESP_LOGI("SOCKET", "UDP packet sent successfully: %d bytes", sent_len);
     }
 
-    pbuf_free(p);
-    udp_remove(pcb);
+    // Close socket
+    if (close(sock) == 0) {
+        ESP_LOGI("SOCKET", "Socket closed successfully");
+    } else {
+        ESP_LOGE("SOCKET", "Failed to close socket");
+    }
+
 }
 
 err_t low_level_output(struct netif *netif, struct pbuf *p)
@@ -185,9 +190,9 @@ err_t low_level_output(struct netif *netif, struct pbuf *p)
 void AppSendPacket(void *pvParameters)
 {
     while (1) {
-        const char *message = "Hello, here is ESP1";
-        SendUDPPacket(message, strlen(message), "192.168.1.10", 1234);
-        vTaskDelay(pdMS_TO_TICKS(5000)); // Odesílání každých 5 sekund
+        const char *message = "Hello, here is ESP32 number1?!";
+        SendUDPPacket(message, strlen(message), TARGET_IP, TARGET_PORT);
+        vTaskDelay(pdMS_TO_TICKS(10000));
     }
 }
 
@@ -225,23 +230,36 @@ void InitQueue(void) {
 void RxTask(void *pvParameters)
 {
     EthernetFrame_t frame;
+    const uint8_t *payload = NULL;
+    size_t payload_length = 0;
 
     while (1) {
         if (xQueueReceive(rxQueue, &frame, portMAX_DELAY) == pdTRUE) {
             ESP_LOGI("RX_TASK", "Received frame: length=%u", frame.length);
 
-            // Převod na hexadecimální řetězec
             char hex_output[frame.length * 2 + 1];
             bin_to_hex(frame.data, frame.length, hex_output, sizeof(hex_output));
             ESP_LOGI("RX_TASK", "Frame content (hex): %s", hex_output);
 
-            // Převod na čitelný textový řetězec
             char string_output[frame.length + 1];
             bin_to_string(frame.data, frame.length, string_output, sizeof(string_output));
             ESP_LOGI("RX_TASK", "Frame content (string): %s", string_output);
+
+            if (extract_payload(frame.data, frame.length, &payload, &payload_length)) {
+                char string_output[payload_length + 1];
+                bin_to_string(payload, payload_length, string_output, sizeof(string_output));
+                ESP_LOGI("RX_TASK", "Payload content (string): %s", string_output);
+
+                char payload_hex_output[payload_length * 2 + 1];
+                bin_to_hex(payload, payload_length, payload_hex_output, sizeof(payload_hex_output));
+                ESP_LOGI("RX_TASK", "Payload content (hex): %s", payload_hex_output);
+            } else {
+                ESP_LOGW("RX_TASK", "Failed to extract payload");
+            }
+        
         }
     }
-}
+ }
 
 
 
@@ -263,4 +281,39 @@ void bin_to_string(const uint8_t *data, size_t length, char *output, size_t outp
         }
     }
     output[i] = '\0';
+}
+
+bool extract_payload(const uint8_t *frame_data, size_t frame_length, const uint8_t **payload, size_t *payload_length) {
+    if (frame_length < 42) {
+        ESP_LOGW("PAYLOAD", "Frame too short to contain payload");
+        return false;
+    }
+
+    struct ip_hdr *iphdr = (struct ip_hdr *)(frame_data + 14);
+    uint16_t ip_header_length = IPH_HL(iphdr) * 4;
+
+    if (IPH_PROTO(iphdr) != IP_PROTO_UDP) {
+        ESP_LOGW("PAYLOAD", "Frame does not contain UDP payload");
+        return false;
+    }
+
+    struct udp_hdr *udphdr = (struct udp_hdr *)((uint8_t *)iphdr + ip_header_length);
+
+    uint16_t udp_length = ntohs(udphdr->len);
+    uint16_t udp_header_length = sizeof(struct udp_hdr);
+
+    if (udp_length <= udp_header_length) {
+        ESP_LOGW("PAYLOAD", "UDP packet does not contain payload");
+        return false;
+    }
+
+    *payload = (uint8_t *)udphdr + udp_header_length;
+    *payload_length = udp_length - udp_header_length;
+
+    if (((uint8_t *)*payload - frame_data + *payload_length) > frame_length) {
+        ESP_LOGW("PAYLOAD", "Invalid payload length");
+        return false;
+    }
+
+    return true;
 }
