@@ -63,12 +63,12 @@ void init_tc6(void)
     
     // Inicializace registrů TC6
     bool regs_init_ok = TC6Regs_Init(tc6_instance, NULL, macAddress, 
-                                     false, // PLCA enable
-                                     0,     // nodeId
-                                     1,     // nodeCount
+                                     PLCA_ENABLE, // PLCA enable
+                                     NODE_ID,     // nodeId
+                                     NODE_COUNT,     // nodeCount
                                      0,     // burstCount
                                      0,     // burstTimer
-                                     false, // promiscuous
+                                     true, // promiscuous
                                      false, // txCutThrough
                                      false);// rxCutThrough
                                      

@@ -1,10 +1,17 @@
 dependencies:
+  espressif/pcap:
+    dependencies: []
+    source:
+      path: C:\Users\michc\Desktop\SPE-LAN8651\components\espressif__pcap
+      type: local
+    version: 1.0.2
   idf:
     source:
       type: idf
     version: 5.3.1
 direct_dependencies:
+- espressif/pcap
 - idf
-manifest_hash: e44bf68eca6b7b264ddae08cd014cd3294c0473230381b6d6f88ed18ec879038
+manifest_hash: 5094976e34d8120fa64302943598822e3afa7e7209a654dd49b8a1150931294c
 target: esp32
 version: 2.0.0

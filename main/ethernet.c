@@ -17,6 +17,9 @@
 #include "main.h"
 #include "lan8651.h"
 #include "ethernet.h"
+#include "pcap.h"
+
+#include "esp_spiffs.h"
 
 static EthernetFrame_t currentFrame;
 static struct netif netif;
@@ -190,7 +193,7 @@ err_t low_level_output(struct netif *netif, struct pbuf *p)
 void AppSendPacket(void *pvParameters)
 {
     while (1) {
-        const char *message = "Hello, here is ESP32 number1?!";
+        const char *message = MESSAGE;
         SendUDPPacket(message, strlen(message), TARGET_IP, TARGET_PORT);
         vTaskDelay(pdMS_TO_TICKS(10000));
     }
@@ -232,6 +235,44 @@ void RxTask(void *pvParameters)
     EthernetFrame_t frame;
     const uint8_t *payload = NULL;
     size_t payload_length = 0;
+    pcap_file_handle_t *pcap = NULL;
+
+    if (SNIFFER) {
+        printf("SNIFFER is enabled\n");
+        InitSPIFFS();
+
+        FILE *file = fopen("/spiffs/capture.pcap", "wb");
+        if (file == NULL) {
+            ESP_LOGE("PCAP", "Failed to create or open PCAP file");
+        }
+
+        // Konfigurace PCAP
+        pcap_config_t config = {
+            .fp = file,
+            .major_version = PCAP_DEFAULT_VERSION_MAJOR,
+            .minor_version = PCAP_DEFAULT_VERSION_MINOR,
+            .time_zone = PCAP_DEFAULT_TIME_ZONE_GMT,
+            .flags = { .little_endian = 1 }
+        };
+
+        esp_err_t err = pcap_new_session(&config, &pcap);
+        if (err != ESP_OK) {
+            ESP_LOGE("PCAP", "Failed to create PCAP session");
+            fclose(file);
+        }
+
+        // Zápis hlavičky PCAP
+        if (pcap != NULL) {
+            esp_err_t err = pcap_write_header(pcap, PCAP_LINK_TYPE_ETHERNET);
+            if (err != ESP_OK) {
+                ESP_LOGE("PCAP", "Failed to write PCAP header");
+                pcap_del_session(pcap);
+                fclose(file);
+                printf("TOTO nesmí nastat\n");
+            }
+        }
+
+    }
 
     while (1) {
         if (xQueueReceive(rxQueue, &frame, portMAX_DELAY) == pdTRUE) {
@@ -256,7 +297,32 @@ void RxTask(void *pvParameters)
             } else {
                 ESP_LOGW("RX_TASK", "Failed to extract payload");
             }
-        
+
+            if (SNIFFER) {
+               // WritePacketToPCAP(*pcap, &frame);
+
+                printf("WritePacketToPCAP called\n");
+                if (pcap == NULL) {
+                    ESP_LOGE("PCAP", "Invalid arguments to WritePacketToPCAP");
+                    return;
+                }
+
+                struct timeval tv;
+                gettimeofday(&tv, NULL);
+
+                esp_err_t err = pcap_capture_packet(pcap, frame.data, frame.length, tv.tv_sec, tv.tv_usec);
+                if (err != ESP_OK) {
+                    ESP_LOGE("PCAP", "Failed to write packet to PCAP file");
+                } else {
+                    ESP_LOGI("PCAP", "Packet written to PCAP file: length=%u", frame.length);
+                }
+                } else {
+                    ESP_LOGI("PCAP", "PCAP is not enabled, skipping packet write");
+                }
+
+
+            
+                    
         }
     }
  }
@@ -317,3 +383,47 @@ bool extract_payload(const uint8_t *frame_data, size_t frame_length, const uint8
 
     return true;
 }
+
+void WritePacketToPCAP(pcap_file_handle_t pcap, const EthernetFrame_t *frame) {
+
+    printf("WritePacketToPCAP called\n");
+    if (pcap == NULL || frame == NULL) {
+        ESP_LOGE("PCAP", "Invalid arguments to WritePacketToPCAP");
+        return;
+    }
+
+    struct timeval tv;
+    gettimeofday(&tv, NULL);
+
+    esp_err_t err = pcap_capture_packet(pcap, frame->data, frame->length, tv.tv_sec, tv.tv_usec);
+    if (err != ESP_OK) {
+        ESP_LOGE("PCAP", "Failed to write packet to PCAP file");
+    } else {
+        ESP_LOGI("PCAP", "Packet written to PCAP file: length=%u", frame->length);
+    }
+}
+
+
+void InitSPIFFS(void) {
+    esp_vfs_spiffs_conf_t conf = {
+        .base_path = "/spiffs", // Mount point
+        .partition_label = NULL,
+        .max_files = 5, // Maximální počet otevřených souborů
+        .format_if_mount_failed = true
+    };
+
+    esp_err_t ret = esp_vfs_spiffs_register(&conf);
+    if (ret != ESP_OK) {
+        ESP_LOGE("SPIFFS", "Failed to initialize SPIFFS (%s)", esp_err_to_name(ret));
+    }
+
+    size_t total = 0, used = 0;
+    ret = esp_spiffs_info(NULL, &total, &used);
+    if (ret == ESP_OK) {
+        ESP_LOGI("SPIFFS", "Partition size: total: %d, used: %d", total, used);
+    } else {
+        ESP_LOGE("SPIFFS", "Failed to get SPIFFS partition information (%s)", esp_err_to_name(ret));
+    }
+
+}
+
