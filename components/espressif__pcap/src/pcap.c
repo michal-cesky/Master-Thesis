@@ -110,7 +110,20 @@ esp_err_t pcap_write_header(pcap_file_handle_t pcap, pcap_link_type_t link_type)
     /* Flush content in the buffer into device */
     fflush(pcap->file);
 
+
+    printf("PCAP File Header:\n");
+    printf("Magic: 0x%lu\n", header.magic);
+    printf("Major Version: %u\n", header.major);
+    printf("Minor Version: %u\n", header.minor);
+    printf("Time Zone: %lu\n", header.zone);
+    printf("Sigfigs: %lu\n", header.sigfigs);
+    printf("Snaplen: %lu\n", header.snaplen);
+    printf("Link Type: %lu\n", header.link_type);
+
+
     printf("TADY v pořádku\n");
+
+    
     
     return ESP_OK;
 }
@@ -130,6 +143,7 @@ esp_err_t pcap_capture_packet(pcap_file_handle_t pcap, void *payload, uint32_t l
     };
 
     printf("Payload Length: %lu, Seconds: %lu, Microseconds: %lu", length, seconds, microseconds);
+
 
     // Výpis obsahu payload v hexadecimálním formátu
     printf("Payload (hex):");
@@ -157,6 +171,9 @@ esp_err_t pcap_capture_packet(pcap_file_handle_t pcap, void *payload, uint32_t l
     real_write = fwrite(payload, sizeof(uint8_t), length, pcap->file);
     ESP_RETURN_ON_FALSE(real_write == length, ESP_FAIL, TAG, "write packet payload failed");
     /* Flush content in the buffer into device */
+
+
+
     fflush(pcap->file);
     return ESP_OK;
 }

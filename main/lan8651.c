@@ -52,6 +52,8 @@ void initPhyResetPin(void) {
 
 void init_tc6(void)
 {
+    bool promiscuous_mode = SNIFFER ? true : false;
+
     tc6_instance = TC6_Init((void *)spi_handle);
     if (tc6_instance == NULL) {
         ESP_LOGE("TC6", "Failed to initialize TC6!");
@@ -68,7 +70,7 @@ void init_tc6(void)
                                      NODE_COUNT,     // nodeCount
                                      0,     // burstCount
                                      0,     // burstTimer
-                                     true, // promiscuous
+                                     promiscuous_mode, // promiscuous
                                      false, // txCutThrough
                                      false);// rxCutThrough
                                      

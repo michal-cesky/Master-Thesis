@@ -25,6 +25,7 @@ static EthernetFrame_t currentFrame;
 static struct netif netif;
 static uint16_t currentOffset = 0;
 QueueHandle_t rxQueue = NULL;
+pcap_file_handle_t *pcap = NULL;
 
 
 void TC6_CB_OnRxEthernetPacket(TC6_t *pInst, bool success, uint16_t len, uint64_t *rxTimestamp, void *pGlobalTag)
@@ -220,7 +221,7 @@ err_t ethernetif_init(struct netif *netif)
 
 
 void InitQueue(void) {
-    rxQueue = xQueueCreate(10, sizeof(EthernetFrame_t));
+    rxQueue = xQueueCreate(50, sizeof(EthernetFrame_t));
     if (rxQueue == NULL) {
         ESP_LOGE("QUEUE", "Failed to create RX queue");
     }
@@ -235,43 +236,10 @@ void RxTask(void *pvParameters)
     EthernetFrame_t frame;
     const uint8_t *payload = NULL;
     size_t payload_length = 0;
-    pcap_file_handle_t *pcap = NULL;
+    struct timeval tv;
 
     if (SNIFFER) {
-        printf("SNIFFER is enabled\n");
-        InitSPIFFS();
-
-        FILE *file = fopen("/spiffs/capture.pcap", "wb");
-        if (file == NULL) {
-            ESP_LOGE("PCAP", "Failed to create or open PCAP file");
-        }
-
-        // Konfigurace PCAP
-        pcap_config_t config = {
-            .fp = file,
-            .major_version = PCAP_DEFAULT_VERSION_MAJOR,
-            .minor_version = PCAP_DEFAULT_VERSION_MINOR,
-            .time_zone = PCAP_DEFAULT_TIME_ZONE_GMT,
-            .flags = { .little_endian = 1 }
-        };
-
-        esp_err_t err = pcap_new_session(&config, &pcap);
-        if (err != ESP_OK) {
-            ESP_LOGE("PCAP", "Failed to create PCAP session");
-            fclose(file);
-        }
-
-        // Zápis hlavičky PCAP
-        if (pcap != NULL) {
-            esp_err_t err = pcap_write_header(pcap, PCAP_LINK_TYPE_ETHERNET);
-            if (err != ESP_OK) {
-                ESP_LOGE("PCAP", "Failed to write PCAP header");
-                pcap_del_session(pcap);
-                fclose(file);
-                printf("TOTO nesmí nastat\n");
-            }
-        }
-
+        InitPCAP();
     }
 
     while (1) {
@@ -299,15 +267,12 @@ void RxTask(void *pvParameters)
             }
 
             if (SNIFFER) {
-               // WritePacketToPCAP(*pcap, &frame);
-
                 printf("WritePacketToPCAP called\n");
                 if (pcap == NULL) {
                     ESP_LOGE("PCAP", "Invalid arguments to WritePacketToPCAP");
                     return;
                 }
 
-                struct timeval tv;
                 gettimeofday(&tv, NULL);
 
                 esp_err_t err = pcap_capture_packet(pcap, frame.data, frame.length, tv.tv_sec, tv.tv_usec);
@@ -319,9 +284,6 @@ void RxTask(void *pvParameters)
                 } else {
                     ESP_LOGI("PCAP", "PCAP is not enabled, skipping packet write");
                 }
-
-
-            
                     
         }
     }
@@ -384,31 +346,14 @@ bool extract_payload(const uint8_t *frame_data, size_t frame_length, const uint8
     return true;
 }
 
-void WritePacketToPCAP(pcap_file_handle_t pcap, const EthernetFrame_t *frame) {
 
-    printf("WritePacketToPCAP called\n");
-    if (pcap == NULL || frame == NULL) {
-        ESP_LOGE("PCAP", "Invalid arguments to WritePacketToPCAP");
-        return;
-    }
-
-    struct timeval tv;
-    gettimeofday(&tv, NULL);
-
-    esp_err_t err = pcap_capture_packet(pcap, frame->data, frame->length, tv.tv_sec, tv.tv_usec);
-    if (err != ESP_OK) {
-        ESP_LOGE("PCAP", "Failed to write packet to PCAP file");
-    } else {
-        ESP_LOGI("PCAP", "Packet written to PCAP file: length=%u", frame->length);
-    }
-}
 
 
 void InitSPIFFS(void) {
     esp_vfs_spiffs_conf_t conf = {
-        .base_path = "/spiffs", // Mount point
+        .base_path = "/spiffs",
         .partition_label = NULL,
-        .max_files = 5, // Maximální počet otevřených souborů
+        .max_files = 5,
         .format_if_mount_failed = true
     };
 
@@ -427,3 +372,37 @@ void InitSPIFFS(void) {
 
 }
 
+void InitPCAP(void) {
+    printf("SNIFFER is enabled\n");
+        InitSPIFFS();
+
+        FILE *file = fopen("/spiffs/capture.pcap", "wb");
+        if (file == NULL) {
+            ESP_LOGE("PCAP", "Failed to create or open PCAP file");
+        }
+
+        pcap_config_t config = {
+            .fp = file,
+            .major_version = PCAP_DEFAULT_VERSION_MAJOR,
+            .minor_version = PCAP_DEFAULT_VERSION_MINOR,
+            .time_zone = PCAP_DEFAULT_TIME_ZONE_GMT,
+            .flags = { .little_endian = 0 }
+        };
+
+        esp_err_t err = pcap_new_session(&config, &pcap);
+        if (err != ESP_OK) {
+            ESP_LOGE("PCAP", "Failed to create PCAP session");
+            fclose(file);
+        }
+
+        // Write header PCAP
+        if (pcap != NULL) {
+            esp_err_t err = pcap_write_header(pcap, PCAP_LINK_TYPE_ETHERNET);
+            if (err != ESP_OK) {
+                ESP_LOGE("PCAP", "Failed to write PCAP header");
+                pcap_del_session(pcap);
+                fclose(file);
+                printf("TOTO nesmí nastat\n");
+            }
+        }
+}

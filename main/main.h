@@ -32,6 +32,8 @@
     #define NODE_ID 0
     #define NODE_COUNT 3
 
+    #define SNIFFER false
+
 
 
 #elif DEVICE == 2
@@ -66,6 +68,8 @@
     #define PLCA_ENABLE true
     #define NODE_ID 2
     #define NODE_COUNT 3
+
+    #define SNIFFER false
 
 
 

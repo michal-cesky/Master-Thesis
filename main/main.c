@@ -38,16 +38,8 @@ void app_main(void)
     uint8_t chipRev1 = TC6Regs_GetChipRevision(tc6_instance);
     ESP_LOGI("MAIN", "LAN8651 Chip Revision: %u", chipRev1);
 
-  //  xTaskCreate(SendFrame, "SendFrame", 4096, (void *)tc6_instance, 5, NULL);
-
+    
     xTaskCreate(AppSendPacket, "AppSendPacketTask", 4096, NULL, 5, NULL);
-/*
-    rxQueue = xQueueCreate(RX_QUEUE_SIZE, sizeof(EthernetFrame_t));
-    if (rxQueue == NULL) {
-    ESP_LOGE("MAIN", "Failed to create RX queue");
-    return; // Ukončete aplikaci, pokud se frontu nepodaří vytvořit
-    }*/
-
 
     xTaskCreate(RxTask, "RxTask", 4096, NULL, 5, NULL);
 }
