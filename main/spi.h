@@ -4,10 +4,10 @@
 #include "esp_err.h"
 #include "driver/spi_master.h"
 
-// Deklarace SPI handle
+// Global handle for the SPI device
 extern spi_device_handle_t spi_handle;
 
-// Deklarace inicializační funkce
+// Iniscialization of the spi interface 
 esp_err_t init_spi(void);
 
 #endif

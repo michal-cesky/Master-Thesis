@@ -1,10 +1,15 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include "esp_err.h"
-
-#include "tc6.h"
 #include "tc6-regs.h"
+
+static const char *TAG = "MAIN";
+
+// Global variable for the MAC address
+extern uint8_t macAddress[6];
+
+// Queue for received frames
+extern QueueHandle_t rxQueue;
 
 #define PIN_NUM_MISO 19
 #define PIN_NUM_MOSI 23
@@ -15,7 +20,8 @@
 
 #define DEVICE 2
 
-// Nastavení pro zařízení 1
+
+// Configurations for different devices
 #if DEVICE == 1
     #define DEVICE_IP      "192.168.1.10"
     #define DEVICE_NETMASK "255.255.255.0"
@@ -54,6 +60,7 @@
     #define SNIFFER true
 
 
+
 #elif DEVICE == 3
     #define DEVICE_IP      "192.168.1.30"
     #define DEVICE_NETMASK "255.255.255.0"
@@ -71,22 +78,6 @@
 
     #define SNIFFER false
 
-
-
-
-#endif
-
-static const char *TAG = "TC6_MAIN";
-
-extern uint8_t macAddress[6];
-extern QueueHandle_t rxQueue;
-
-
-#ifdef DEBUG
-    #define DEBUG_LOG(tag, format, ...) ESP_LOGI(tag, format, ##__VA_ARGS__)
-#else
-    // Pokud není DEBUG definován, logování se vypne
-    #define DEBUG_LOG(tag, format, ...)
 #endif
 
 #endif

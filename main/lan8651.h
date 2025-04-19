@@ -1,20 +1,22 @@
 #ifndef LAN8651_H
 #define LAN8651_H
 
-
-#include "esp_err.h"
 #include "driver/spi_master.h"
 #include "tc6.h"
 
+// Global pointer to the tc6 instance
 extern TC6_t *tc6_instance;
 
-
+// Function for hardware reset of the PHY
 void initPhyResetPin(void);
-void init_tc6(void);
+
+// Iniscialization of the tc6 library
+void initTc6(void);
+
+// Function to chack synchronization status of the PHY
 void SyncTask(void *pvParameters);
+
+// Function for chack MAC Network Control Register (Is transmit and receive enabled?)
 uint32_t lan8651ReadChipId(TC6_t *tc6_instance);
-static void printChipRevision(TC6_t *pInst);
-static void onReadChipId(TC6_t *pInst, bool success, uint32_t addr, uint32_t regValue, void *pTag, void *pGlobalTag);
-static void handle_tc6_service(void);
 
 #endif

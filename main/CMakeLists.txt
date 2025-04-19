@@ -1,3 +1,3 @@
-idf_component_register(SRCS "main.c" "callback.c" "spi.c" "lan8651.c" "ethernet.c"
+idf_component_register(SRCS "main.c" "spi.c" "lan8651.c" "ethernet.c"
                        INCLUDE_DIRS "."
-                       REQUIRES libtc6 driver esp_timer esp_netif lwip espressif__pcap spiffs)
+                       REQUIRES libtc6 driver esp_netif lwip espressif__pcap spiffs)
