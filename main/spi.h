@@ -8,6 +8,6 @@
 extern spi_device_handle_t spi_handle;
 
 // Iniscialization of the spi interface 
-esp_err_t init_spi(void);
+esp_err_t InitSpi(void);
 
 #endif

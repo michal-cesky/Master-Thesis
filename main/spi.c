@@ -10,7 +10,7 @@ spi_device_handle_t spi_handle;
 
 
 
-esp_err_t init_spi(void) {
+esp_err_t InitSpi(void) {
     esp_err_t ret;
 
     // SPI configuraton
@@ -32,7 +32,7 @@ esp_err_t init_spi(void) {
 
     // SPI device configuration
     spi_device_interface_config_t devcfg = {
-        .clock_speed_hz = 5 * 1000 * 1000, // 5 MHz
+        .clock_speed_hz = 2 * 1000 * 1000, // 5 MHz
         .mode = 0,                         // SPI mode
         .spics_io_num = PIN_NUM_CS,        // CS pin
         .queue_size = 7,

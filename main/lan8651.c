@@ -12,11 +12,11 @@ TC6_t *tc6_instance = NULL;
 static bool serviceNeeded = false;
 static uint32_t g_chipIdValue = 0;
 
-// Callback function for reading the chip ID
-static void onReadChipId(TC6_t *pInst, bool success, uint32_t addr, uint32_t regValue, void *pTag, void *pGlobalTag);
+// Function for reading MAC register
+static void onReadMAC(TC6_t *pInst, bool success, uint32_t addr, uint32_t regValue, void *pTag, void *pGlobalTag);
 
-// Callback function for reading the chip ID
-static void handle_tc6_service(void);
+// Helper function to process TC6 service requests when needed
+static void HandleTc6Service(void);
 
 
 
@@ -72,7 +72,7 @@ void initTc6(void) {
                                      NODE_COUNT,     // nodeCount
                                      0,     // burstCount
                                      0,     // burstTimer
-                                     promiscuous_mode, // promiscuous mode
+                                     true, // promiscuous mode   promiscuous_mode
                                      false, // txCutThrough
                                      false);// rxCutThrough
                                      
@@ -95,7 +95,7 @@ void SyncTask(void *pvParameters) {
     static uint32_t last_check = 0;
 
     while (1) {
-        handle_tc6_service();
+        HandleTc6Service();
 
         TC6_Service(tc6_instance, true);
 
@@ -119,11 +119,11 @@ void SyncTask(void *pvParameters) {
 
 
 
-uint32_t lan8651ReadChipId(TC6_t *tc6_instance) {
+uint32_t ReadMacControlRegister(TC6_t *tc6_instance) {
     g_chipIdValue = 0;
     uint32_t address = 0x00000000;
 
-    bool ok = TC6_ReadRegister(tc6_instance, address, false, onReadChipId, NULL);
+    bool ok = TC6_ReadRegister(tc6_instance, address, false, onReadMAC, NULL);
     if (!ok) {
         ESP_LOGE(TAG, "Could not begin read of Chip ID register!");
         return 0;
@@ -138,7 +138,7 @@ uint32_t lan8651ReadChipId(TC6_t *tc6_instance) {
     return g_chipIdValue;
 }
 
-static void onReadChipId(TC6_t *pInst, bool success, uint32_t addr, uint32_t regValue, void *pTag, void *pGlobalTag) {
+static void onReadMAC(TC6_t *pInst, bool success, uint32_t addr, uint32_t regValue, void *pTag, void *pGlobalTag) {
     if (success) {
         g_chipIdValue = regValue;
     }
@@ -146,7 +146,7 @@ static void onReadChipId(TC6_t *pInst, bool success, uint32_t addr, uint32_t reg
 
 
 
-void handle_tc6_service(void) {
+void HandleTc6Service(void) {
     if (serviceNeeded) {
         serviceNeeded = false;
         TC6_Service(tc6_instance, false);

@@ -1,6 +1,9 @@
 #ifndef MAIN_H
 #define MAIN_H
 
+#include "freertos/FreeRTOS.h"
+#include "freertos/queue.h"
+
 #include "tc6-regs.h"
 
 static const char *TAG = "MAIN";
@@ -34,11 +37,14 @@ extern QueueHandle_t rxQueue;
 
     #define MESSAGE "Hello, here is ESP32 number1?!"
 
-    #define PLCA_ENABLE true
+    #define PLCA_ENABLE false
     #define NODE_ID 0
-    #define NODE_COUNT 3
+    #define NODE_COUNT 2
 
     #define SNIFFER false
+    #define PCAP_FILENAME "/spiffs/capture.pcap"
+
+    #define Encrypted_server false
 
 
 
@@ -53,11 +59,14 @@ extern QueueHandle_t rxQueue;
 
     #define MESSAGE "Hello, here is ESP32 number2?!"
 
-    #define PLCA_ENABLE true
+    #define PLCA_ENABLE false
     #define NODE_ID 1
-    #define NODE_COUNT 3
+    #define NODE_COUNT 2
 
-    #define SNIFFER true
+    #define SNIFFER false
+    #define PCAP_FILENAME "/spiffs/capture.pcap"
+
+    #define Encrypted_server true
 
 
 
@@ -72,11 +81,14 @@ extern QueueHandle_t rxQueue;
 
     #define MESSAGE "Hello, here is ESP32 number3?!"
 
-    #define PLCA_ENABLE true
+    #define PLCA_ENABLE false
     #define NODE_ID 2
     #define NODE_COUNT 3
 
-    #define SNIFFER false
+    #define SNIFFER true
+    #define PCAP_FILENAME "/spiffs/capture.pcap"
+
+    #define Encrypted_server false
 
 #endif
 

@@ -17,6 +17,6 @@ void initTc6(void);
 void SyncTask(void *pvParameters);
 
 // Function for chack MAC Network Control Register (Is transmit and receive enabled?)
-uint32_t lan8651ReadChipId(TC6_t *tc6_instance);
+uint32_t ReadMacControlRegister(TC6_t *tc6_instance);
 
 #endif

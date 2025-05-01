@@ -22,4 +22,8 @@ void RxTask(void *pvParameters);
 // Funkcion called by task to send UDP packet
 void AppSendPacket(void *pvParameters);
 
+void ClientTask(void *pvParameters);
+
+void ServerTask(void *pvParameters);
+
 #endif
