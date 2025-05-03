@@ -1,6 +1,7 @@
 #include "esp_log.h"
 
 #include "spi.h"
+#include "configuration.h"
 #include "main.h"
 
 static const char *SPI_TAG = "SPI";
@@ -12,6 +13,8 @@ spi_device_handle_t spi_handle;
 
 esp_err_t InitSpi(void) {
     esp_err_t ret;
+
+    ESP_LOGI(SPI_TAG, "Initializing SPI...");
 
     // SPI configuraton
     spi_bus_config_t buscfg = {
@@ -26,13 +29,13 @@ esp_err_t InitSpi(void) {
     // SPI init
     ret = spi_bus_initialize(SPI2_HOST, &buscfg, SPI_DMA_CH_AUTO);
     if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to initialize SPI bus: %s", esp_err_to_name(ret));
+        ESP_LOGE(SPI_TAG, "Failed to initialize SPI bus: %s", esp_err_to_name(ret));
         return ret;
     }
 
     // SPI device configuration
     spi_device_interface_config_t devcfg = {
-        .clock_speed_hz = 2 * 1000 * 1000, // 5 MHz
+        .clock_speed_hz = CLOCK_RATE,
         .mode = 0,                         // SPI mode
         .spics_io_num = PIN_NUM_CS,        // CS pin
         .queue_size = 7,
@@ -41,11 +44,11 @@ esp_err_t InitSpi(void) {
     // Add device to SPI interface
     ret = spi_bus_add_device(SPI2_HOST, &devcfg, &spi_handle);
     if (ret != ESP_OK) {
-        ESP_LOGE(TAG, "Failed to add SPI device: %s", esp_err_to_name(ret));
+        ESP_LOGE(SPI_TAG, "Failed to add SPI device: %s", esp_err_to_name(ret));
         return ret;
     }
 
-    ESP_LOGI(TAG, "SPI initialized successfully");
+    ESP_LOGI(SPI_TAG, "SPI initialized successfully");
     return ESP_OK;
 }
 

@@ -20,10 +20,10 @@ void InitLWIP(void);
 void RxTask(void *pvParameters);
 
 // Funkcion called by task to send UDP packet
-void AppSendPacket(void *pvParameters);
+void SendPacketUnencrypted(void *pvParameters);
 
-void ClientTask(void *pvParameters);
+void EncryptedClientTask(void *pvParameters);
 
-void ServerTask(void *pvParameters);
+void EncryptedServerTask(void *pvParameters);
 
 #endif

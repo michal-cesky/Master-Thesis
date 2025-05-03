@@ -7,13 +7,17 @@
 
 #include "esp_spiffs.h"
 
-#include "encryption.h"
-
+#include "configuration.h"
 #include "main.h"
 #include "lan8651.h"
 #include "ethernet.h"
 #include "pcap.h"
 #include "encryption.h"
+
+// Do not change this
+#define TC6LwIP_MTU 1536
+#define MAX_SLICE_SIZE 64
+#define MIN_HEADER_LEN 42
 
 static const char *Ethernet_TAG = "ETHERNET";
 static const char *LWIP_TAG = "LWIP";
@@ -26,7 +30,11 @@ static const char *Spiffs_TAG = "SPIFFS";
 
 static EthernetFrame_t currentFrame;
 QueueHandle_t rxQueue = NULL;
-static uint16_t currentOffset = 0;
+static struct pbuf *rx_pbuf = NULL;
+static uint16_t rx_len = 0;
+static bool rx_invalid = false;
+
+uint8_t macAddress[6] = DEVICE_MAC;
 
 // Network interface registered with lwIP
 static struct netif netif;
@@ -35,7 +43,7 @@ static struct netif netif;
 pcap_file_handle_t *pcap = NULL;
 
 // Function for crate, close and sanding packets using UDP socket
-void SendUDPPacket(const char *data, uint16_t length, const char *dest_ip, uint16_t dest_port);
+void SendUDPPacket(const char *data, uint16_t length, const char *dest_ip, const char *dest_port);
 
 // Initialization function for setap network interface in lwIP stack
 err_t InitEthernetif(struct netif *netif);
@@ -56,17 +64,10 @@ void InitSPIFFS(void);
 void InitPCAP(void);
 
 
-#define TC6LwIP_MTU 1536
-#define MAX_SLICE_SIZE 64
-#define MIN_HEADER_LEN 42
 
-static struct pbuf *rx_pbuf = NULL;
-static uint16_t rx_len = 0;
-static bool rx_invalid = false;
 
 // Callback function for receiving Ethernet packets
-void TC6_CB_OnRxEthernetPacket(TC6_t *pInst, bool success, uint16_t len, uint64_t *rxTimestamp, void *pGlobalTag)
-{
+void TC6_CB_OnRxEthernetPacket(TC6_t *pInst, bool success, uint16_t len, uint64_t *rxTimestamp, void *pGlobalTag) {
     (void)pInst;
     (void)rxTimestamp;
     (void)pGlobalTag;
@@ -76,18 +77,17 @@ void TC6_CB_OnRxEthernetPacket(TC6_t *pInst, bool success, uint16_t len, uint64_
         result = false;
     }
     if (result && (rx_len != len)) {
-        ESP_LOGE(Ethernet_TAG, "on_rx_eth_ready: size mismatch");
+        ESP_LOGE(Ethernet_TAG, "OnRxEthernetPacket: Size mischmatch");
         result = false;
     }
     if (result && (len < MIN_HEADER_LEN)) {
-        ESP_LOGE(Ethernet_TAG, "on_rx_eth_ready: received invalid small packet len %u", len);
+        ESP_LOGE(Ethernet_TAG, "OnRxEthernetPacket: received invalid small packet len %u", len);
         result = false;
     }
     if (result) {
-        pbuf_realloc(rx_pbuf, len); // Shrink pbuf to real length
+        pbuf_realloc(rx_pbuf, len);
         struct eth_hdr *ethhdr = (struct eth_hdr *)rx_pbuf->payload;
         uint16_t ethType = htons(ethhdr->type);
-
 
         currentFrame.length = len;
         memcpy(currentFrame.data, rx_pbuf->payload, len > sizeof(currentFrame.data) ? sizeof(currentFrame.data) : len);
@@ -101,14 +101,12 @@ void TC6_CB_OnRxEthernetPacket(TC6_t *pInst, bool success, uint16_t len, uint64_
             }
         }
 
-        // Pokud chcete filtrovat typy rámců, můžete zde
-        // if (FilterRxEthernetPacket(ethType)) { ... }
         if (netif.input(rx_pbuf, &netif) == ERR_OK) {
             rx_pbuf = NULL;
             rx_len = 0;
             rx_invalid = false;
         } else {
-            ESP_LOGE(Ethernet_TAG, "on_rx_eth_ready: IP input error");
+            ESP_LOGE(Ethernet_TAG, "Wrong IP");
             result = false;
         }
     }
@@ -120,32 +118,29 @@ void TC6_CB_OnRxEthernetPacket(TC6_t *pInst, bool success, uint16_t len, uint64_
         rx_len = 0;
         rx_invalid = false;
     }
-
-
 }
 
 // Callback function for receiving Ethernet slices
-void TC6_CB_OnRxEthernetSlice(TC6_t *pInst, const uint8_t *pRx, uint16_t offset, uint16_t len, void *pGlobalTag)
-{
+void TC6_CB_OnRxEthernetSlice(TC6_t *pInst, const uint8_t *pRx, uint16_t offset, uint16_t len, void *pGlobalTag) {
     bool success = true;
 
     if (rx_invalid) {
         success = false;
     }
     if (success && ((offset + len) > TC6LwIP_MTU)) {
-        ESP_LOGE(Ethernet_TAG, "on_rx_slice: packet greater than MTU (%u)", (offset + len));
+        ESP_LOGE(Ethernet_TAG, "OnRxEthernetSlice: packet is to large: %u", (offset + len));
         rx_invalid = true;
         success = false;
     }
     if (success && (0u != offset)) {
         if (!rx_pbuf || !rx_len) {
-            ESP_LOGE(Ethernet_TAG, "rx_slice: missing buffer or length");
+            ESP_LOGE(Ethernet_TAG, "OnRxEthernetSlice: missing buffer or length");
             rx_invalid = true;
             success = false;
         }
     } else {
         if (success && (rx_pbuf || rx_len)) {
-            ESP_LOGE(Ethernet_TAG, "rx_slice: buffer not cleared before new frame");
+            ESP_LOGE(Ethernet_TAG, "OnRxEthernetSlice: buffer not cleared before new frame");
             rx_invalid = true;
             if (rx_pbuf) pbuf_free(rx_pbuf);
             rx_pbuf = NULL;
@@ -159,7 +154,7 @@ void TC6_CB_OnRxEthernetSlice(TC6_t *pInst, const uint8_t *pRx, uint16_t offset,
             }
         }
         if (success && (rx_pbuf && rx_pbuf->next != NULL)) {
-            ESP_LOGE(Ethernet_TAG, "rx_slice: could not allocate unsegmented memory");
+            ESP_LOGE(Ethernet_TAG, "OnRxEthernetSlice: could not allocate unsegmented memory");
             rx_invalid = true;
             pbuf_free(rx_pbuf);
             rx_pbuf = NULL;
@@ -178,13 +173,12 @@ void TC6_CB_OnRxEthernetSlice(TC6_t *pInst, const uint8_t *pRx, uint16_t offset,
         memcpy(sliceFrame.data, pRx, len > sizeof(sliceFrame.data) ? sizeof(sliceFrame.data) : len);
 
         ESP_LOGI(Ethernet_TAG, "Slice received: offset=%u, length=%u", offset, len);
-        ESP_LOGI(Ethernet_TAG, "Slice content: %.*s", sliceFrame.length, sliceFrame.data);
+        ESP_LOGI(Ethernet_TAG, "Slice content: %.*s\n", sliceFrame.length, sliceFrame.data);
 
         if (xQueueSend(rxQueue, &sliceFrame, pdMS_TO_TICKS(100)) != pdTRUE) {
             ESP_LOGW(Ethernet_TAG, "RX queue is full, dropping slice");
         }
     }
-
 }
 
 
@@ -224,20 +218,25 @@ void InitLWIP(void) {
 
 
 
-void AppSendPacket(void *pvParameters) {
+void SendPacketUnencrypted(void *pvParameters) {
     while (1) {
         const char *message = MESSAGE;
         SendUDPPacket(message, strlen(message), TARGET_IP, TARGET_PORT);
-        vTaskDelay(pdMS_TO_TICKS(15000));   //Send packet every 10 seconds
+        vTaskDelay(pdMS_TO_TICKS(TIMER_FOR_SEND_MESSAGE));
     }
 }
 
-void SendUDPPacket(const char *data, uint16_t length, const char *dest_ip, uint16_t dest_port) {
-#if ENABLE_ENCRYPTION
-    SendEncryptedPacket(data, length, dest_ip, dest_port);
-#else
+void SendUDPPacket(const char *data, uint16_t length, const char *dest_ip, const char *dest_port) {
     int sock;
     struct sockaddr_in dest_addr;
+    uint16_t dest_port_num = (uint16_t)atoi(dest_port);
+
+    if (data == NULL || dest_ip == NULL || strlen(dest_ip) == 0) {
+        ESP_LOGE(Socket_TAG, "Invalid arguments to SendUDPPacket");
+        return;
+    }
+
+    ESP_LOGI(Socket_TAG, "Sending UDP packet to %s:%u", dest_ip, dest_port_num);
 
     if (!ipaddr_aton(dest_ip, &dest_addr)) {
         ESP_LOGE("UDP", "Invalid destination IP address");
@@ -256,7 +255,7 @@ void SendUDPPacket(const char *data, uint16_t length, const char *dest_ip, uint1
 
     memset(&dest_addr, 0, sizeof(dest_addr));
     dest_addr.sin_family = AF_INET;
-    dest_addr.sin_port = htons(dest_port);
+    dest_addr.sin_port = htons(dest_port_num);
     if (inet_aton(dest_ip, &dest_addr.sin_addr) == 0) {
         ESP_LOGE(Socket_TAG, "Invalid destination IP address");
         close(sock);
@@ -273,11 +272,10 @@ void SendUDPPacket(const char *data, uint16_t length, const char *dest_ip, uint1
 
     // Close socket
     if (close(sock) == 0) {
-        ESP_LOGI(Socket_TAG, "Socket closed successfully");
+        ESP_LOGI(Socket_TAG, "Socket closed successfully\n");
     } else {
-        ESP_LOGE(Socket_TAG, "Failed to close socket");
-    }
-#endif    
+        ESP_LOGE(Socket_TAG, "Failed to close socket\n");
+    } 
 }
 
 // Callback function for sending Ethernet frames
@@ -328,6 +326,7 @@ void RxTask(void *pvParameters) {
 
     while (1) {
         if (xQueueReceive(rxQueue, &frame, portMAX_DELAY) == pdTRUE) {
+            printf("\n");
             ESP_LOGI(Receive_TAG, "Received frame: length=%u", frame.length);
 
             char hex_output[frame.length * 2 + 1];
@@ -339,15 +338,15 @@ void RxTask(void *pvParameters) {
             ESP_LOGI(Receive_TAG, "Frame content (string): %s", string_output);
 
             if (ExtractPayload(frame.data, frame.length, &payload, &payload_length)) {
-                char string_output[payload_length + 1];
-                BinToString(payload, payload_length, string_output, sizeof(string_output));
-                ESP_LOGI(Receive_TAG, "Payload content (string): %s", string_output);
-
                 char payload_hex_output[payload_length * 2 + 1];
                 BinToHex(payload, payload_length, payload_hex_output, sizeof(payload_hex_output));
                 ESP_LOGI(Receive_TAG, "Payload content (hex): %s", payload_hex_output);
+
+                char string_output[payload_length + 1];
+                BinToString(payload, payload_length, string_output, sizeof(string_output));
+                ESP_LOGI(Receive_TAG, "Payload content (string): %s\n", string_output);
             } else {
-                ESP_LOGW(Receive_TAG, "Failed to extract payload");
+                ESP_LOGW(Receive_TAG, "Failed to extract payload\n");
             }
 
             if (SNIFFER) {
@@ -487,11 +486,13 @@ void InitPCAP(void) {
 }
 
 
-void ClientTask(void *pvParameters) {
+void EncryptedClientTask(void *pvParameters) {
     const char *message = MESSAGE;
+    ESP_LOGI(Ethernet_TAG, "Device is in client mode");
     SendEncryptedPacket(message, strlen(message), TARGET_IP, TARGET_PORT);
 }
 
-void ServerTask(void *pvParameters) {
+void EncryptedServerTask(void *pvParameters) {
+    ESP_LOGI(Ethernet_TAG, "Device is in server mode");
     ReceiveDecryptedPacket();
 }

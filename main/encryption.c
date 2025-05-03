@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include "esp_log.h"
 
-#include "encryption.h"
-#include "esp_log.h"
 #include "mbedtls/ssl.h"
 #include "mbedtls/net_sockets.h"
 #include "mbedtls/entropy.h"
@@ -12,7 +10,6 @@
 #include "mbedtls/timing.h"
 #include "mbedtls/debug.h"
 #include "mbedtls/platform.h"
-
 #include "mbedtls/ssl_cookie.h"
 #include "mbedtls/x509.h"
 
@@ -20,51 +17,30 @@
 #include "esp_vfs_fat.h"
 #include "esp_system.h"
 
-static wl_handle_t s_wl_handle = WL_INVALID_HANDLE;
-
-
-#include "main.h"
+#include "configuration.h"
+#include "encryption.h"
 
 static const char *Secure_TAG = "ENCRYPTION";
 
-#define READ_TIMEOUT_MS 5000
-#define MAX_RETRY       50
-
-//#define DEBUG_LEVEL 4
-
-#define SERVER_PORT "4433"
-#define SERVER_NAME "CA"
-
-#define SERVER_PERS "dtls_server"
-#define CLIENT_PERS "dtls_client"
-
-
-
-
+mbedtls_net_context listen_fd;
+mbedtls_net_context client_fd;
+mbedtls_net_context server_fd;
 mbedtls_ssl_context ssl;
 mbedtls_ssl_config conf;
-mbedtls_net_context server_fd;
-mbedtls_net_context client_fd;
-mbedtls_net_context listen_fd;
 mbedtls_entropy_context entropy;
 mbedtls_ctr_drbg_context ctr_drbg;
 
-mbedtls_x509_crt srvcert;
-mbedtls_pk_context pkey;
 mbedtls_ssl_cookie_ctx cookie_ctx;
-
-
-
+mbedtls_x509_crt srvcert;
 mbedtls_x509_crt cacert;
+mbedtls_pk_context pkey;
 
 mbedtls_timing_delay_context timer;
 
+static wl_handle_t s_wl_handle = WL_INVALID_HANDLE;
 unsigned char buffer[1500];
-
 int error_code;
-
-int len, ret;
-
+int handshake_done = 0;
 unsigned char client_ip[16] = { 0 };
 size_t cliip_len;
 
@@ -74,12 +50,22 @@ typedef struct {
     TickType_t start;
 } dtls_timer_context;
 
+// Declaration of server and CA certificates and private key
+const char server_cert[];
+const char ca_cert[];
+const char server_key[];
 
+// Function for debugging DTLS
 void DTLSDebug(void *ctx, int level, const char *file, int line, const char *str);
+
+// Function for initializing FAT filesystem
 //void FATCertsInit(void);
 
 
+
+
 void InitDTLSServer(void) {
+    ESP_LOGI(Secure_TAG, "Initializing DTLS server...");
 
   //  FATCertsInit();
 
@@ -94,70 +80,70 @@ void InitDTLSServer(void) {
     mbedtls_x509_crt_init(&srvcert);
     mbedtls_pk_init(&pkey);
 
-    mbedtls_ssl_conf_dbg(&conf, DTLSDebug, stdout);
     mbedtls_debug_set_threshold(4);
+    mbedtls_ssl_conf_dbg(&conf, DTLSDebug, stdout);
 
 
     psa_status_t status = psa_crypto_init();
     if (status != PSA_SUCCESS) {
-        ESP_LOGE(Secure_TAG, "Failed to initialize PSA Crypto implementation: %d\n", (int)status);
+        ESP_LOGE(Secure_TAG, "Failed to initialize PSA Crypto implementation: %d", (int)status);
         error_code = MBEDTLS_ERR_SSL_HW_ACCEL_FAILED;
         return;
     }
 
     mbedtls_ssl_conf_rng(&conf, mbedtls_ctr_drbg_random, &ctr_drbg);
 
-
     if (mbedtls_ctr_drbg_seed(&ctr_drbg, mbedtls_entropy_func, &entropy, (const unsigned char *)SERVER_PERS, strlen(SERVER_PERS)) != 0) {
-        ESP_LOGE(Secure_TAG, "Failed to initialize random number generator\n");
+        ESP_LOGE(Secure_TAG, "Failed to initialize random number generator");
         return;
     }
 
     error_code = mbedtls_x509_crt_parse(&srvcert, (const unsigned char *) server_cert, strlen(server_cert) + 1);
     //error_code = mbedtls_x509_crt_parse_file(&srvcert, "/certs/srvcrt.pem");
     if (error_code != 0) {
-        ESP_LOGE(Secure_TAG, "Failed to parse server certificate with error: %x\n", (unsigned int) error_code);
+        ESP_LOGE(Secure_TAG, "Failed to parse server certificate with error: %x", (unsigned int) error_code);
         return;
     }
 
     error_code = mbedtls_x509_crt_parse(&srvcert, (const unsigned char *) ca_cert, strlen(ca_cert) + 1);
     //error_code = mbedtls_x509_crt_parse_file(&srvcert, "/certs/cacrt.pem");
     if (error_code != 0) {
-        ESP_LOGE(Secure_TAG, "Failed to parse CA certificate with error: %d\n", error_code);
+        ESP_LOGE(Secure_TAG, "Failed to parse CA certificate with error: %d", error_code);
         return;
     }
 
     error_code = mbedtls_pk_parse_key(&pkey, (const unsigned char *)server_key, strlen(server_key) + 1, NULL, 0, mbedtls_ctr_drbg_random, &ctr_drbg);
     //error_code = mbedtls_pk_parse_keyfile(&pkey, "/certs/srvkey.pem", NULL, mbedtls_ctr_drbg_random, &ctr_drbg);
     if (error_code != 0) {
-        ESP_LOGE(Secure_TAG, "Failed to parse server private key with error: %d\n", error_code);
+        ESP_LOGE(Secure_TAG, "Failed to parse server private key with error: %d", error_code);
         return;
     }
 
-    error_code = mbedtls_net_bind(&listen_fd, TARGET_IP, "4433", MBEDTLS_NET_PROTO_UDP); 
+    error_code = mbedtls_net_bind(&listen_fd, TARGET_IP, TARGET_PORT, MBEDTLS_NET_PROTO_UDP); 
     if (error_code != 0) {
-        ESP_LOGE(Secure_TAG, "Failed to bind UDP socket with error: %d\n", error_code);
+        ESP_LOGE(Secure_TAG, "Failed to bind UDP socket with error: %d", error_code);
         return;
     }
 
     error_code = mbedtls_ssl_config_defaults(&conf, MBEDTLS_SSL_IS_SERVER, MBEDTLS_SSL_TRANSPORT_DATAGRAM, MBEDTLS_SSL_PRESET_DEFAULT);
     if(error_code != 0) {   
-        ESP_LOGE(Secure_TAG, "Failed to set SSL configuration with error: %d\n", error_code);
+        ESP_LOGE(Secure_TAG, "Failed to set SSL configuration with error: %d", error_code);
         return;
     }
 
     mbedtls_ssl_conf_read_timeout(&conf, READ_TIMEOUT_MS);
 
     mbedtls_ssl_conf_ca_chain(&conf, srvcert.next, NULL);
+
     error_code = mbedtls_ssl_conf_own_cert(&conf, &srvcert, &pkey);
     if(error_code != 0) {
-        ESP_LOGE(Secure_TAG, "Failed to configurate own certificate with error: %d\n", error_code);
+        ESP_LOGE(Secure_TAG, "Failed to configurate own certificate with error: %d", error_code);
         return;
     }
 
     error_code = mbedtls_ssl_cookie_setup(&cookie_ctx, mbedtls_ctr_drbg_random, &ctr_drbg);
     if(error_code != 0) {
-        ESP_LOGE(Secure_TAG, "Fail to setup server cookies with error: %d\n", error_code);
+        ESP_LOGE(Secure_TAG, "Fail to setup server cookies with error: %d", error_code);
         return;
     }
 
@@ -165,17 +151,17 @@ void InitDTLSServer(void) {
 
     error_code = mbedtls_ssl_setup(&ssl, &conf);
     if(error_code != 0) {
-        ESP_LOGE(Secure_TAG, "Failed to setup SSL with error: %d\n", error_code);
+        ESP_LOGE(Secure_TAG, "Failed to setup SSL with error: %d", error_code);
         return;
     }
 
     mbedtls_ssl_set_timer_cb(&ssl, &timer, mbedtls_timing_set_delay, mbedtls_timing_get_delay);
  
-    ESP_LOGI(Secure_TAG, "DTLS server initialized successfully\n");
+    ESP_LOGI(Secure_TAG, "DTLS server initialized successfully");
 }
 
-
 void InitDTLSClient(void) {
+    ESP_LOGI(Secure_TAG, "Initializing DTLS client...");
 
   //  FATCertsInit();
 
@@ -193,7 +179,7 @@ void InitDTLSClient(void) {
 
     psa_status_t status = psa_crypto_init();
     if (status != PSA_SUCCESS) {
-        ESP_LOGE(Secure_TAG, "Failed to initialize PSA Crypto implementation: %d\n", (int)status);
+        ESP_LOGE(Secure_TAG, "Failed to initialize PSA Crypto implementation: %d", (int)status);
         error_code = MBEDTLS_ERR_SSL_HW_ACCEL_FAILED;
         return;
     }
@@ -201,28 +187,28 @@ void InitDTLSClient(void) {
     mbedtls_ssl_conf_rng(&conf, mbedtls_ctr_drbg_random, &ctr_drbg);
 
     if (mbedtls_ctr_drbg_seed(&ctr_drbg, mbedtls_entropy_func, &entropy, (const unsigned char *)CLIENT_PERS, strlen(CLIENT_PERS)) != 0) {
-        ESP_LOGE(Secure_TAG, "Failed to initialize random number generator\n");
+        ESP_LOGE(Secure_TAG, "Failed to initialize random number generator");
         return;
     }
 
     error_code = mbedtls_x509_crt_parse(&cacert, (const unsigned char *) ca_cert, strlen(ca_cert) + 1);
     //error_code = mbedtls_x509_crt_parse_file(&cacert, "/certs/cacrt.pem");
     if (error_code != 0) {
-        ESP_LOGE(Secure_TAG, "Failed to parse CA certificate with error: %d\n", error_code);
+        ESP_LOGE(Secure_TAG, "Failed to parse CA certificate with error: %d", error_code);
         return;
     }
 
-    error_code = mbedtls_net_connect(&server_fd, TARGET_IP, "4433", MBEDTLS_NET_PROTO_UDP);
+    error_code = mbedtls_net_connect(&server_fd, TARGET_IP, TARGET_PORT, MBEDTLS_NET_PROTO_UDP);
     if (error_code != 0) {
-        ESP_LOGE(Secure_TAG, "Failed to connect to the server with error: %d\n", error_code);
+        ESP_LOGE(Secure_TAG, "Failed to connect to the server with error: %d", error_code);
         return;
     } else {
-        ESP_LOGI(Secure_TAG, "Successfully connected to server %s:%s\n", TARGET_IP, "4433");
+        ESP_LOGI(Secure_TAG, "Successfully connected to server %s:%s", TARGET_IP, TARGET_PORT);
     }
 
     error_code = mbedtls_ssl_config_defaults(&conf, MBEDTLS_SSL_IS_CLIENT, MBEDTLS_SSL_TRANSPORT_DATAGRAM, MBEDTLS_SSL_PRESET_DEFAULT);
     if (error_code != 0) {
-        ESP_LOGE(Secure_TAG, "Failed to set SSL configuration with error: %d\n", error_code);
+        ESP_LOGE(Secure_TAG, "Failed to set SSL configuration with error: %d", error_code);
         return;
     }
 
@@ -234,13 +220,13 @@ void InitDTLSClient(void) {
 
     error_code = mbedtls_ssl_setup(&ssl, &conf);
     if(error_code != 0) {
-        ESP_LOGE(Secure_TAG, "Failed to setup SSL with error: %d\n", error_code);
+        ESP_LOGE(Secure_TAG, "Failed to setup SSL with error: %d", error_code);
         return;
     }
 
     error_code = mbedtls_ssl_set_hostname(&ssl, SERVER_NAME);
     if(error_code != 0) {
-        ESP_LOGE(Secure_TAG, "Failed to setup a hostname with error: %d\n", error_code);
+        ESP_LOGE(Secure_TAG, "Failed to setup a hostname with error: %d", error_code);
         return;
     }
 
@@ -248,133 +234,73 @@ void InitDTLSClient(void) {
 
     mbedtls_ssl_set_timer_cb(&ssl, &timer, mbedtls_timing_set_delay, mbedtls_timing_get_delay);
 
-
-    ESP_LOGI(Secure_TAG, "DTLS client initialized successfully\n");
+    ESP_LOGI(Secure_TAG, "DTLS client initialized successfully");
 }
 
-
-
-void SendEncryptedPacket(const char *data, uint16_t length, const char *dest_ip, uint16_t dest_port) {
-    int handshake_done = 0;
-
-    if (dest_ip == NULL || strlen(dest_ip) == 0) {
-        ESP_LOGE(Secure_TAG, "Invalid destination IP address\n");
-        return;
-    }
-
-    ESP_LOGI(Secure_TAG, "Connecting to %s:%u\n", dest_ip, dest_port);
-    ESP_LOGI(Secure_TAG, "Starting handshake...\n");
-
-    while (1) {
-        if (!handshake_done) {
-
-            do {
-                error_code = mbedtls_ssl_handshake(&ssl);
-            } while (error_code == MBEDTLS_ERR_SSL_WANT_READ || error_code == MBEDTLS_ERR_SSL_WANT_WRITE);
-
-            if (error_code != 0) {
-                ESP_LOGE(Secure_TAG, "Handshake failed with error: %d\n", error_code);
-                continue; // Try handshake again
-            }
-
-            ESP_LOGI(Secure_TAG, "Handshake successful\n");
-            handshake_done = 1;
-        }
-
-        while(handshake_done) {
-            ESP_LOGI(Secure_TAG, "Try to send encrypted packet\n");
-            do {
-                error_code = mbedtls_ssl_write(&ssl, (unsigned char *) MESSAGE, length);
-            } while (error_code == MBEDTLS_ERR_SSL_WANT_READ || error_code == MBEDTLS_ERR_SSL_WANT_WRITE);
-        
-            if (error_code < 0) {
-                ESP_LOGE(Secure_TAG, "Failed to send packet with error: %d\n", error_code);
-                continue;
-            }
-            
-            ESP_LOGI(Secure_TAG, "Packet sent successfully\n");
-            vTaskDelay(pdMS_TO_TICKS(10000));
-        }
-
-        mbedtls_ssl_close_notify(&ssl);
-        mbedtls_net_free(&server_fd);
-    }
-}
 
 
 void ReceiveDecryptedPacket(void) {
     int lenght;
 
     mbedtls_net_free(&client_fd);
-
     mbedtls_ssl_session_reset(&ssl);
-
 
     error_code = mbedtls_net_accept(&listen_fd, &client_fd, client_ip, sizeof(client_ip), &cliip_len);
     if(error_code != 0) {
-        ESP_LOGE(Secure_TAG, "Failed to waiting fo r socket with error: %d\n", error_code);
+        ESP_LOGE(Secure_TAG, "Failed to waiting fo r socket with error: %d", error_code);
     }
-
 
     error_code = mbedtls_ssl_set_client_transport_id(&ssl, client_ip, cliip_len);
     if(error_code != 0) {
-        ESP_LOGE(Secure_TAG, "Failed to set HelloVerifyRequest cookies with error: %d\n", error_code);
+        ESP_LOGE(Secure_TAG, "Failed to set HelloVerifyRequest cookies with error: %d", error_code);
     }
 
     mbedtls_ssl_set_bio(&ssl, &client_fd, mbedtls_net_send, mbedtls_net_recv, mbedtls_net_recv_timeout);
 
-    int handshake_done = 0;
-    while (1) {  // While for receiving packets
-
-     //   mbedtls_net_free(&client_fd);
-
-     //   mbedtls_ssl_session_reset(&ssl);
-
+    while (1) {  // While for receiving packets   
         if (!handshake_done) {
-            ESP_LOGI(Secure_TAG, "Starting handshake...\n");
+            ESP_LOGI(Secure_TAG, "Starting handshake...");
     
             do {
                 error_code = mbedtls_ssl_handshake(&ssl);
             } while (error_code == MBEDTLS_ERR_SSL_WANT_READ || error_code == MBEDTLS_ERR_SSL_WANT_WRITE);
     
             if (error_code == MBEDTLS_ERR_SSL_HELLO_VERIFY_REQUIRED) {
-                ESP_LOGE(Secure_TAG, "Handshake failed: HelloVerifyRequest required. Restarting handshake...\n");
+                ESP_LOGW(Secure_TAG, "Handshake failed: HelloVerifyRequest required. Restarting handshake...");
 
                 mbedtls_net_free(&client_fd);
                 mbedtls_ssl_session_reset(&ssl);
 
                 error_code = mbedtls_net_accept(&listen_fd, &client_fd, client_ip, sizeof(client_ip), &cliip_len);
                 if(error_code != 0) {
-                    ESP_LOGE(Secure_TAG, "Failed to waiting fo r socket with error: %d\n", error_code);
+                    ESP_LOGE(Secure_TAG, "Failed to waiting fo r socket with error: %d", error_code);
                 }
                     
                 error_code = mbedtls_ssl_set_client_transport_id(&ssl, client_ip, cliip_len);
                 if(error_code != 0) {
-                    ESP_LOGE(Secure_TAG, "Failed to set HelloVerifyRequest cookies with error: %d\n", error_code);
+                    ESP_LOGE(Secure_TAG, "Failed to set HelloVerifyRequest cookies with error: %d", error_code);
                 }
-
                 continue;  // Restart handshake
 
             } else if (error_code != 0) {
-                ESP_LOGE(Secure_TAG, "Handshake failed with error %d. Restarting handshake...\n", error_code);
+                ESP_LOGE(Secure_TAG, "Handshake failed with error %d. Restarting handshake...", error_code);
 
                 mbedtls_net_free(&client_fd);
                 mbedtls_ssl_session_reset(&ssl);
                 
                 error_code = mbedtls_net_accept(&listen_fd, &client_fd, client_ip, sizeof(client_ip), &cliip_len);
                 if(error_code != 0) {
-                    ESP_LOGE(Secure_TAG, "Failed to waiting fo r socket with error: %d\n", error_code);
+                    ESP_LOGE(Secure_TAG, "Failed to waiting fo r socket with error: %d", error_code);
                 }
             
                 error_code = mbedtls_ssl_set_client_transport_id(&ssl, client_ip, cliip_len);
                 if(error_code != 0) {
-                    ESP_LOGE(Secure_TAG, "Failed to set HelloVerifyRequest cookies with error: %d\n", error_code);
+                    ESP_LOGE(Secure_TAG, "Failed to set HelloVerifyRequest cookies with error: %d", error_code);
                 }
-                
                 continue;  // Restart handshake
             }
     
-            ESP_LOGI(Secure_TAG, "DTLS handshake successful, waiting for data...\n");
+            ESP_LOGI(Secure_TAG, "DTLS handshake successful, waiting for data...");
             handshake_done = 1;
         }
 
@@ -384,18 +310,64 @@ void ReceiveDecryptedPacket(void) {
         } while (lenght == MBEDTLS_ERR_SSL_WANT_READ || lenght == MBEDTLS_ERR_SSL_WANT_WRITE);
     
         if (lenght < 0) {
-            ESP_LOGE(Secure_TAG, "Failed to receive encrypted packet\n");
+            ESP_LOGE(Secure_TAG, "Failed to receive encrypted packet");
             continue;  // Try to receive data again
         } else {
             buffer[lenght] = '\0';
-            ESP_LOGI(Secure_TAG, "Decrypted packet: %s", buffer);
-
+            ESP_LOGI(Secure_TAG, "Decrypted packet: %s\n", buffer);
         }
     }
 
     mbedtls_ssl_close_notify(&ssl);
     mbedtls_net_free(&listen_fd);
 }
+
+void SendEncryptedPacket(const char *data, uint16_t length, const char *dest_ip, const char *dest_port) {
+    if (dest_ip == NULL || strlen(dest_ip) == 0) {
+        ESP_LOGE(Secure_TAG, "Invalid destination IP address");
+        return;
+    }
+
+    ESP_LOGI(Secure_TAG, "Connecting to %s:%s", dest_ip, dest_port);
+    ESP_LOGI(Secure_TAG, "Starting handshake...");
+
+    while (1) {
+        if (!handshake_done) {
+
+            do {
+                error_code = mbedtls_ssl_handshake(&ssl);
+            } while (error_code == MBEDTLS_ERR_SSL_WANT_READ || error_code == MBEDTLS_ERR_SSL_WANT_WRITE);
+
+            if (error_code != 0) {
+                ESP_LOGE(Secure_TAG, "Handshake failed with error: %d", error_code);
+                continue; // Try handshake again
+            }
+
+            ESP_LOGI(Secure_TAG, "Handshake successful");
+            handshake_done = 1;
+        }
+
+        while(handshake_done) {
+            ESP_LOGI(Secure_TAG, "Try to send encrypted packet");
+            do {
+                error_code = mbedtls_ssl_write(&ssl, (unsigned char *) MESSAGE, length);
+            } while (error_code == MBEDTLS_ERR_SSL_WANT_READ || error_code == MBEDTLS_ERR_SSL_WANT_WRITE);
+        
+            if (error_code < 0) {
+                ESP_LOGE(Secure_TAG, "Failed to send packet with error: %d", error_code);
+                continue;
+            }
+            
+            ESP_LOGI(Secure_TAG, "Packet sent successfully\n");
+            vTaskDelay(pdMS_TO_TICKS(TIMER_FOR_SEND_MESSAGE));
+        }
+
+        mbedtls_ssl_close_notify(&ssl);
+        mbedtls_net_free(&server_fd);
+    }
+}
+
+
 
 void DTLSDebug(void *ctx, int level, const char *file, int line, const char *str) {
     ((void) level);
@@ -404,17 +376,16 @@ void DTLSDebug(void *ctx, int level, const char *file, int line, const char *str
 }
 
 void FATCertsInit(void) {
-
     esp_vfs_fat_mount_config_t mount_config  = {
         .max_files = 3,
         .format_if_mount_failed = false
     };
+
     wl_handle_t s_wl_handle;
     error_code = esp_vfs_fat_spiflash_mount_ro("/certs", "certs", &mount_config);
     if (error_code != ESP_OK) {
         ESP_LOGE("CERTS", "Failed to mount certs partition with error: %d\n", error_code);
     }
-
 }
 
 

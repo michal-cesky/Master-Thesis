@@ -7,6 +7,9 @@
 // Global pointer to the tc6 instance
 extern TC6_t *tc6_instance;
 
+// Global variable for the MAC address
+extern uint8_t macAddress[6];
+
 // Function for hardware reset of the PHY
 void initPhyResetPin(void);
 
@@ -17,6 +20,6 @@ void initTc6(void);
 void SyncTask(void *pvParameters);
 
 // Function for chack MAC Network Control Register (Is transmit and receive enabled?)
-uint32_t ReadMacControlRegister(TC6_t *tc6_instance);
+void ReadMacControlRegister(TC6_t *tc6_instance);
 
 #endif

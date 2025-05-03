@@ -2,6 +2,7 @@
 #include "driver/gpio.h"
 
 #include "lan8651.h"
+#include "configuration.h"
 #include "main.h"
 #include "spi.h"
 
@@ -55,6 +56,8 @@ void initPhyResetPin(void) {
 }
 
 void initTc6(void) {
+    ESP_LOGI(TC6_TAG, "Initializing TC6...");
+
     bool promiscuous_mode = SNIFFER ? true : false;
 
     tc6_instance = TC6_Init((void *)spi_handle);
@@ -70,11 +73,11 @@ void initTc6(void) {
                                      PLCA_ENABLE, // PLCA enable
                                      NODE_ID,     // nodeId
                                      NODE_COUNT,     // nodeCount
-                                     0,     // burstCount
-                                     0,     // burstTimer
-                                     true, // promiscuous mode   promiscuous_mode
-                                     false, // txCutThrough
-                                     false);// rxCutThrough
+                                     BURST_COUNT,     // burstCount
+                                     BURST_TIMER,     // burstTimer
+                                     SNIFFER, // promiscuous mode
+                                     TX_CUT_THROUHG, // txCutThrough
+                                     RX_CUT_THROUGH);// rxCutThrough
                                      
     if (!regs_init_ok) {
         ESP_LOGE(TC6_TAG, "Failed to initialize TC6 registers!");
@@ -106,8 +109,8 @@ void SyncTask(void *pvParameters) {
             uint8_t txCredit, rxCredit;
 
             TC6_GetState(tc6_instance, &txCredit, &rxCredit, &synced);
-            ESP_LOGI(PHY_TAG, "LAN8651 status - Synced: %s, TX Credit: %u, RX Credit: %u",
-                     synced ? "YES" : "NO", txCredit, rxCredit);
+            printf("\n");
+            ESP_LOGI(PHY_TAG, "LAN8651 status - Synced: %s, TX Credit: %u, RX Credit: %u\n", synced ? "YES" : "NO", txCredit, rxCredit);
 
             last_check = now;
         }
@@ -119,14 +122,13 @@ void SyncTask(void *pvParameters) {
 
 
 
-uint32_t ReadMacControlRegister(TC6_t *tc6_instance) {
+void ReadMacControlRegister(TC6_t *tc6_instance) {
     g_chipIdValue = 0;
     uint32_t address = 0x00000000;
 
     bool ok = TC6_ReadRegister(tc6_instance, address, false, onReadMAC, NULL);
     if (!ok) {
-        ESP_LOGE(TAG, "Could not begin read of Chip ID register!");
-        return 0;
+        ESP_LOGE(PHY_TAG, "Could not begin read of Chip ID register!");
     }
 
     // Wait for callback function to set g_chipIdValue
@@ -135,7 +137,7 @@ uint32_t ReadMacControlRegister(TC6_t *tc6_instance) {
         vTaskDelay(pdMS_TO_TICKS(10));
     }
 
-    return g_chipIdValue;
+    ESP_LOGI(PHY_TAG, "LAN8651 Chip ID: 0x%08lX", g_chipIdValue);
 }
 
 static void onReadMAC(TC6_t *pInst, bool success, uint32_t addr, uint32_t regValue, void *pTag, void *pGlobalTag) {
@@ -160,7 +162,7 @@ void TC6_CB_OnNeedService(TC6_t *pInst, void *pGlobalTag) {
 
 // Callback for handling errors
 void TC6_CB_OnError(TC6_t *pInst, TC6_Error_t err, void *pGlobalTag) {
-    ESP_LOGE(TAG, "TC6 error occurred: %d", err);
+    ESP_LOGE(TC6_TAG, "TC6 error occurred: %d", err);
 }
 
 // Callback for providing the current time in milliseconds
@@ -170,5 +172,5 @@ uint32_t TC6Regs_CB_GetTicksMs(void) {
 
 // Callback for handling TC6 register events
 void TC6Regs_CB_OnEvent(TC6_t *pInst, TC6Regs_Event_t event, void *pTag) {
-    ESP_LOGI(TAG, "TC6 register event: %d", event);
+    ESP_LOGI(TC6_TAG, "TC6 register event: %d", event);
 }
